@@ -63,6 +63,9 @@ main nav:first-child article {
     align-items: center;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+    grid-column-start: 2;
 }
 
 main nav:first-child article img{
