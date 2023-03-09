@@ -55,7 +55,20 @@
         </button>
     </main>
     <footer>
-        
+        <nav>
+            <section>
+                <p>Contact</p>
+            </section>
+            <section>
+                <p>Inscription</p>
+            </section>
+            <section>
+                <p>Navigation</p>
+            </section>
+            <section>
+                <p>Réseaux sociaux</p>
+            </section>
+        </nav>
     </footer>
 </body>
 </html>
