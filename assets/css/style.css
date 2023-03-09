@@ -98,3 +98,16 @@ main nav:first-child footer {
     font-family: Century Gothic;
     color: #0B3948;
 }
+
+footer nav{
+    display: grid;
+    width: auto;
+    height: auto;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    background-color: #0B3948;
+}
