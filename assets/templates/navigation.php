@@ -19,25 +19,25 @@ if (isset($t[$lang])) {
             <button><img src="assets/img/nav_img.png" alt=""></button>
             <ul>
                 <li><a href="index.php"><?= $translations['home'] ?></a></li>
-                <li><a href="#"><?= $t[$_GET['lang']]['event'] ?></a></li>
-                <li><a href="#"><?= $t[$_GET['lang']]['article'] ?></a></li>
-                <li><a href="signin.php"><?= $t[$_GET['lang']]['signin'] ?></a></li>
-                <li><a href="login.php"><?= $t[$_GET['lang']]['login'] ?></a></li>
+                <li><a href="#"><?= $translations['event'] ?></a></li>
+                <li><a href="#"><?= $translations['article'] ?></a></li>
+                <li><a href="signin.php"><?= $translations['signin'] ?></a></li>
+                <li><a href="login.php"><?= $translations['login'] ?></a></li>
                 <?php if ($userLoaded['isAdmin']) : ?>
-                <li><a href="#"><?= $t[$_GET['lang']]['admin'] ?></a></li>
+                <li><a href="#"><?= $translations['admin'] ?></a></li>
                 <?php endif; ?>
-                <li><a href="#"><?= $t[$_GET['lang']]['contact'] ?></a></li>
-                <li><a href="#"><?= $t[$_GET['lang']]['about'] ?></a></li>
+                <li><a href="#"><?= $translations['contact'] ?></a></li>
+                <li><a href="#"><?= $translations['about'] ?></a></li>
             </ul>
         </li>
         <li>
-            <a href="index.php"><?= $t[$_GET['lang']]['home'] ?></a>
-            <a href="#"><?= $t[$_GET['lang']]['contact'] ?></a>
-            <a href="#"><?= $t[$_GET['lang']]['about'] ?></a>
+            <a href="index.php"><?= $translations['home'] ?></a>
+            <a href="#"><?= $translations['contact'] ?></a>
+            <a href="#"><?= $translations['about'] ?></a>
         </li>
         <li>
             <form action="#">
-                <input type="text" placeholder="<?= $t[$_GET['lang']]['search'] ?>">
+                <input type="text" placeholder="<?= $translations['search'] ?>">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </li>
