@@ -19,7 +19,6 @@
         }
     */
     ?>
-</script>
 </head>
 <body>
     <header>
@@ -51,7 +50,7 @@
             </footer>
         </nav>
         <nav>
-            <h2><?= $t[$_GET['lang']]['article'] ?></h2>
+            <h2><?= $t['nav']['article'] ?></h2>
             <article>
                 <header>
                     <img src="" alt="">

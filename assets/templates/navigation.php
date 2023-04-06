@@ -1,17 +1,40 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['lang'])) {
-        $_SESSION['lang'] = 'fr'; // Définir la langue par défaut ici
-      }
-      
-    include("assets/locales/translations.php");
-    $lang = $_SESSION['lang'];
-
-if (isset($t[$lang])) {
-  $translations = $t[$lang];
-} else {
-  $translations = $t['fr']; // Charger les traductions en français si la langue sélectionnée n'est pas disponible
+session_start();
+if (!isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = 'fr'; // Définir la langue par défaut ici
 }
+
+// Inclure le fichier de traduction correspondant à la langue courante
+switch ($_SESSION['lang']) {
+    case 'fr':
+        include(dirname(__FILE__) . "/../locales/fr.php");
+        break;
+    case 'en':
+        include(dirname(__FILE__) . "/../locales/en.php");
+        break;
+    default:
+        include(dirname(__FILE__) . "/../locales/fr.php");
+        break;
+}
+
+// Vérifier si la langue a été changée
+if (isset($_GET['lang'])) {
+    switch ($_GET['lang']) {
+        case 'fr':
+            $_SESSION['lang'] = 'fr';
+            include(dirname(__FILE__) . "/../locales/fr.php");
+            break;
+        case 'en':
+            $_SESSION['lang'] = 'en';
+            include(dirname(__FILE__) . "/../locales/en.php");
+            break;
+        default:
+            $_SESSION['lang'] = 'fr';
+            include(dirname(__FILE__) . "/../locales/fr.php");
+            break;
+    }
+}
+
 ?>
 <nav>
     <ul>
@@ -31,7 +54,7 @@ if (isset($t[$lang])) {
             </ul>
         </li>
         <li>
-            <a href="index.php"><?= $translations['home'] ?></a>
+            <a href="index.php"><?= $t['nav']['home'] ?></a>
             <a href="#"><?= $translations['contact'] ?></a>
             <a href="#"><?= $translations['about'] ?></a>
         </li>
@@ -42,13 +65,12 @@ if (isset($t[$lang])) {
             </form>
         </li>
         <li>
-            <select onchange="location = this.value;">
-                <?php foreach ($languages as $code => $name) : ?>
-                    <option value="?lang=<?php echo $code; ?>" <?php if ($_GET['lang'] == $code) echo 'selected'; ?>>
-                        <?php echo $name; ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+                <select name="lang" onchange="this.form.submit()">
+                    <option value="fr" <?php if ($_SESSION['lang'] == 'fr') echo 'selected'; ?>>Français</option>
+                    <option value="en" <?php if ($_SESSION['lang'] == 'en') echo 'selected'; ?>>English</option>
+                </select>
+            </form>
         </li>
     </ul>
 </nav>
