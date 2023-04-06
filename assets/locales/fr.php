@@ -24,10 +24,10 @@ $t = [
         'navigation' => 'Navigation',
         'social' => 'Réseaux sociaux',
         'facebook' => 'Facebook',
-    ]
+    ],
     'index' => [
         'namegroup' => 'Opus Ensemble Vocal Féminin',
         'nextevent' => 'Futures Evénements',
         'article' => 'Articles',
-    ]
+    ],
 ];

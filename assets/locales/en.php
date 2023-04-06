@@ -3,10 +3,13 @@
 $t = [
     'nav' => [
         'home' => 'Home',
-        'event' => 'Events',
-        'article' => 'Articles',
+        'event' => 'Event',
+        'article' => 'Article',
+        'signin' => "Sign in",
+        'login' => 'Log in',
+        'admin' => 'Admin',
         'contact' => 'Contact',
         'about' => 'About',
-        'search' => 'Search...'
+        'search' => 'Search...',
     ],
 ];
