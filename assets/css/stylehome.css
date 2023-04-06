@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    background-color: #D9DBF1;
+}
+
+header section img {
+    width: 100%;
+    height: auto;
+}
+
+main h2 {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    font-family: Arial, sans-serif;
+    color: #0B3948;
+    overflow: scroll;
+}
+
+main > p {
+    display: block;
+    text-align: center;
+    margin: 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #0B3948; 
+}

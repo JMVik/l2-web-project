@@ -1,8 +1,3 @@
-body {
-    margin: 0;
-    background-color: #D9DBF1;
-}
-
 header nav {
     width: 100%;
     height: 60px;
@@ -40,21 +35,8 @@ header nav li:last-child {
     padding-right: 1rem;
 }
 
-header img:nth-child(2) {
-    width: 100%;
-    height: auto;
-}
 
-main nav h2{
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    font-family: Century Gothic;
-    color: #0B3948;
-}
-
-main nav:first-child article {
+main > nav:first-child > article > section {
     display: grid;
     width: auto;
     height: auto;
@@ -111,3 +93,11 @@ footer nav{
     padding: 10px;
     background-color: #0B3948;
 }
+
+
+
+<?php foreach ($languages as $code => $name) : ?>
+                    <option value="?lang=<?php echo $code; ?>" <?php if ($_GET['lang'] == $code) echo 'selected'; ?>>
+                        <?php echo $name; ?>
+                    </option>
+                <?php endforeach; ?>

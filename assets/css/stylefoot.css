@@ -1,0 +1,113 @@
+body > footer > nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: #0B3948;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+    body > footer > nav {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media (min-width: 992px) {
+    body > footer > nav {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+footer > nav > section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+footer > nav > section > h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #D9DBF1;
+}
+
+footer > nav > section:first-child > p {
+    margin: 0;
+    color: #D9DBF1;
+}
+
+footer > nav > section:nth-child(2) > form {
+    display: flex;
+}
+
+footer > nav > section:nth-child(2) p {
+    margin: 0;
+    color: #D9DBF1;
+}
+
+footer > nav > section:nth-child(2) input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    float: left;
+    width: 70%;
+    max-width: 200px;
+    background: #ACB0BD;
+    color: #416165;
+}
+
+footer > nav > section:nth-child(2) button {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    background: #ACB0BD;
+    color: #416165;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+footer > nav > section:nth-child(2) button:hover {
+    background: #416165;
+    color: #D9DBF1;
+}
+
+footer > nav > section:nth-child(3) > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer > nav > section:nth-child(3) > li {
+    margin-bottom: 5px;
+}
+
+footer > nav > section:nth-child(3) a {
+    color: #D9DBF1;
+    text-decoration: none;
+}
+
+footer > nav > section:nth-child(3) a:hover {
+    color: #416165;
+}
+
+footer > nav > section:nth-child(4) > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+footer > nav > section:nth-child(4) > li {
+    margin-right: 10px;
+}
+
+footer > nav > section:nth-child(4) a {
+    color: #D9DBF1;
+    text-decoration: none;
+}
+
+footer > nav > section:nth-child(4) a:hover {
+    color: #416165;
+}

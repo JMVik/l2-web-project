@@ -15,7 +15,7 @@ class User extends Database
         $this->pdo->query('CREATE TABLE IF NOT EXISTS user (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             email VARCHAR(200) NOT NULL UNIQUE,
-            password VARCHAR(50) NOT NULL
+            password VARCHAR(100) NOT NULL
         )');
     }
 
@@ -32,4 +32,25 @@ class User extends Database
         $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
         $stmt->execute();
     }
+
+    public function getUserByEmail(string $email)
+{
+    $stmt = $this->pdo->prepare('SELECT * FROM user WHERE email = :email');
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
+    return $stmt->fetch();
+}
+
+public function loginUser(string $email, string $password) {
+    $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
+    $stmt->bindValue(':email', htmlspecialchars($email));
+    $stmt->execute();
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        return $user;
+    } else {
+        return false;
+    }
+}
 }
