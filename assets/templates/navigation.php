@@ -12,6 +12,9 @@ switch ($_SESSION['lang']) {
     case 'en':
         include(dirname(__FILE__) . "/../locales/en.php");
         break;
+    case 'de':
+        include(dirname(__FILE__) . "/../locales/de.php");
+    break;
     default:
         include(dirname(__FILE__) . "/../locales/fr.php");
         break;
@@ -28,6 +31,10 @@ if (isset($_GET['lang'])) {
             $_SESSION['lang'] = 'en';
             include(dirname(__FILE__) . "/../locales/en.php");
             break;
+        case 'de':
+            $_SESSION['lang'] = 'de';
+            include(dirname(__FILE__) . "/../locales/de.php");
+            break;
         default:
             $_SESSION['lang'] = 'fr';
             include(dirname(__FILE__) . "/../locales/fr.php");
@@ -41,26 +48,26 @@ if (isset($_GET['lang'])) {
         <li>
             <button><img src="assets/img/nav_img.png" alt=""></button>
             <ul>
-                <li><a href="index.php"><?= $translations['home'] ?></a></li>
-                <li><a href="#"><?= $translations['event'] ?></a></li>
-                <li><a href="#"><?= $translations['article'] ?></a></li>
-                <li><a href="signin.php"><?= $translations['signin'] ?></a></li>
-                <li><a href="login.php"><?= $translations['login'] ?></a></li>
+                <li><a href="index.php"><?= $t['nav']['home'] ?></a></li>
+                <li><a href="#"><?= $t['nav']['event'] ?></a></li>
+                <li><a href="#"><?= $t['nav']['article'] ?></a></li>
+                <li><a href="signin.php"><?= $t['nav']['signin'] ?></a></li>
+                <li><a href="login.php"><?= $t['nav']['login'] ?></a></li>
                 <?php if ($userLoaded['isAdmin']) : ?>
-                <li><a href="#"><?= $translations['admin'] ?></a></li>
+                <li><a href="#"><?= $t['nav']['admin'] ?></a></li>
                 <?php endif; ?>
-                <li><a href="#"><?= $translations['contact'] ?></a></li>
-                <li><a href="#"><?= $translations['about'] ?></a></li>
+                <li><a href="#"><?= $t['nav']['contact'] ?></a></li>
+                <li><a href="#"><?= $t['nav']['about'] ?></a></li>
             </ul>
         </li>
         <li>
             <a href="index.php"><?= $t['nav']['home'] ?></a>
-            <a href="#"><?= $translations['contact'] ?></a>
-            <a href="#"><?= $translations['about'] ?></a>
+            <a href="#"><?= $t['nav']['contact'] ?></a>
+            <a href="#"><?= $t['nav']['about'] ?></a>
         </li>
         <li>
             <form action="#">
-                <input type="text" placeholder="<?= $translations['search'] ?>">
+                <input type="text" placeholder="<?= $t['nav']['search'] ?>">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </li>
@@ -69,6 +76,7 @@ if (isset($_GET['lang'])) {
                 <select name="lang" onchange="this.form.submit()">
                     <option value="fr" <?php if ($_SESSION['lang'] == 'fr') echo 'selected'; ?>>Français</option>
                     <option value="en" <?php if ($_SESSION['lang'] == 'en') echo 'selected'; ?>>English</option>
+                    <option value="de" <?php if ($_SESSION['lang'] == 'de') echo 'selected'; ?>>Deutsch</option>
                 </select>
             </form>
         </li>

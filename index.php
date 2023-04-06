@@ -30,12 +30,12 @@
         </section>
     </header>
     <main>
-        <h2><?= $translations['namegroup'] ?></h2>
+        <h2><?= $t['index']['namegroup'] ?></h2>
         <p>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."    
         </p> 
         <nav>
-            <h2><?= $t[$_GET['lang']]['nextevent'] ?></h2>
+            <h2><?= $t['index']['nextevent'] ?></h2>
             <article>
                 <section>
                     <img src="assets/img/test.jpg" alt="">
@@ -50,7 +50,7 @@
             </footer>
         </nav>
         <nav>
-            <h2><?= $t['nav']['article'] ?></h2>
+            <h2><?= $t['index']['article'] ?></h2>
             <article>
                 <header>
                     <img src="" alt="">

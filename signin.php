@@ -23,14 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="assets/css/stylelogin.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
-    <?php
-        $langueNavigateur = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        parse_str($_SERVER['QUERY_STRING'], $params);
-        if (!isset($params['lang'])) {
-            header('Location: ' . $_SERVER['QUERY_STRING'] . '?lang=' . $langueNavigateur);
-            exit();
-        }
-    ?>
     <script src="assets/js/verif_form.js" defer></script>
     <script src="assets/js/signin_form.js" defer></script>
 </head>
