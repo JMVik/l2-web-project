@@ -30,4 +30,16 @@ $t = [
         'nextevent' => 'Futures Evénements',
         'article' => 'Articles',
     ],
+    'login' => [
+        'login_form' => 'Connexion',
+        'email' => 'E-mail',
+        'password' => 'Mot de passe',
+        'login_button' => 'Se connecter',
+    ],
+    'signin' => [
+        'signin_form' => 'Inscription',
+        'email' => 'E-mail',
+        'password' => 'Mot de passe',
+        'signin_button' => "S'inscrire",
+    ],
 ];

@@ -34,14 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
     <main>
         <form method="post" action="signin.php">
-            <h1><?= $t[$_GET['lang']]['signin_form'] ?></h1>
-            <label for="email"><b><?= $t[$_GET['lang']]['email'] ?></b></label>
+            <h1><?= $t['signin']['signin_form'] ?></h1>
+            <label for="email"><b><?= $t['signin']['email'] ?></b></label>
             <input type="email" required>
             <p></p>
-            <label><b>Mot de passe</b></label>
+            <label><b><?= $t['signin']['password'] ?></b></label>
             <input type="password" required>
             <p></p>
-            <button type="submit"><b><?= $t[$_GET['lang']]['signin'] ?></b></button>
+            <button type="submit"><b><?= $t['signin']['signin_button'] ?></b></button>
         </form>
     </main>
     <footer>

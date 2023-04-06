@@ -46,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
     <main>
         <form method="post" action="login.php">
-            <h1><?= $t[$_GET['lang']]['login_form'] ?></h1>
-            <label for="email"><b><?= $t[$_GET['lang']]['email'] ?></b></label>
+            <h1><?= $t['login']['login_form'] ?></h1>
+            <label for="email"><b><?= $t['login']['email'] ?></b></label>
             <input id="email" type="email">
             <p></p>
-            <label><b>Mot de passe</b></label>
+            <label><b><?= $t['login']['password'] ?></b></label>
             <input type="password" id="password">
             <p></p>
-            <button type="submit" name="submit"><b><?= $t[$_GET['lang']]['login'] ?></b></button>
+            <button type="submit" name="submit"><b><?= $t['login']['login'] ?></b></button>
         </form>
         <?php if (isset($errorMessage)): ?>
         <p><?php echo $errorMessage; ?></p>
