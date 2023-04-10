@@ -49,7 +49,7 @@ $posteventexist = new PostEvent();
                     if ($imageData) {
                         $data = base64_encode($imageData['data']);
                         $type = $imageData['type'];
-                        echo "<img src='data:$type;base64,$data'>";
+                        echo "<img src='data:$type;base64,$data' alt='Image événement'>";
                     }
                 ?>
                 </section>

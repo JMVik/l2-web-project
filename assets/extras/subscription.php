@@ -31,15 +31,15 @@ if (isset($_POST['email'])) {
         <b>    
         <?php if (isset($_POST['email'])) : ?>
             <?php if ($news) : ?>
-            <?= $t['subscription']['success'] ?>
+                <?= $t['subscription']['success'] ?>
             <?php else : ?>
-            <?= $t['subscription']['failure_email'] ?>
+                <?= $t['subscription']['failure_email'] ?>
             <?php endif; ?>
-            <a href='/../../index.php'><?= $t['subscription']['link'] ?></a>
+                <a href='/../../index.php'><?= $t['subscription']['link'] ?></a>
         <?php else : ?>
-        <?= $t['subscription']['failure'] ?>
-        <a href='/../../index.php'><?= $t['subscription']['link'] ?></a>
-        <?php header("Refresh: 5; url=/../../index.php"); ?>
+            <?= $t['subscription']['failure'] ?>
+            <a href='/../../index.php'><?= $t['subscription']['link'] ?></a>
+            <?php header("Refresh: 5; url=/../../index.php"); ?>
         <?php endif; ?>
         </b>
     </p>

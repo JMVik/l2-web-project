@@ -48,16 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['image']) && isset($
     <p>
         <b>
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['image']) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-        <?= $t['add_event']['msg_success'] ?>
-        <a href='/../../../index.php'><?= $t['add_event']['link'] ?></a>
+            <?= $t['add_event']['msg_success'] ?>
+            <a href='/../../../index.php'><?= $t['add_event']['link'] ?></a>
         <?php elseif (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-        <?= $t['add_event']['msg_failure'] ?>
-        <a href='/../../../index.php'><?= $t['add_event']['link'] ?></a>
-        <?php header("Refresh: 5; url=/../../../index.php"); ?>
+            <?= $t['add_event']['msg_failure'] ?>
+            <a href='/../../../index.php'><?= $t['add_event']['link'] ?></a>
+            <?php header("Refresh: 5; url=/../../../index.php"); ?>
         <?php else : ?>
-        <?= $t['add_event']['msg_noperm'] ?>
-        <a href='/../../../index.php'><?= $t['add_event']['link'] ?></a>
-        <?php header("Refresh: 5; url=/../../../index.php"); ?>
+            <?= $t['add_event']['msg_noperm'] ?>
+            <a href='/../../../index.php'><?= $t['add_event']['link'] ?></a>
+            <?php header("Refresh: 5; url=/../../../index.php"); ?>
         <?php endif; ?>
         </b>
     </p>

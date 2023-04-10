@@ -43,19 +43,19 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         <b>
         <?php if (isset($_POST['email']) && isset($_POST['password'])) : ?>
             <?php if ($loggedInUser && $emailExist) : ?>
-            <?= $t['account_connection']['msg_success'] ?>
-            <a href='/../../login.php'><?= $t['account_connection']['linkdash'] ?></a>
+                <?= $t['account_connection']['msg_success'] ?>
+                <a href='/../../login.php'><?= $t['account_connection']['linkdash'] ?></a>
             <?php elseif ($emailExist) : ?>
-            <?= $t['account_connection']['msg_failure_mdp'] ?>
-            <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
+                <?= $t['account_connection']['msg_failure_mdp'] ?>
+                <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
             <?php else : ?>
-            <?= $t['account_connection']['msg_failure_email'] ?>
-            <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
+                <?= $t['account_connection']['msg_failure_email'] ?>
+                <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
             <?php endif; ?>
         <?php else : ?>
-        <?= $t['account_connection']['msg_failure'] ?>
-        <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
-        <?php header("Refresh: 5; url=/../../login.php"); ?>
+            <?= $t['account_connection']['msg_failure'] ?>
+            <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
+            <?php header("Refresh: 5; url=/../../login.php"); ?>
         <?php endif; ?>
         </b>
     </p>

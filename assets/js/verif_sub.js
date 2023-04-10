@@ -1,7 +1,7 @@
 const emailCheckSub = (emailSub) => /[a-zA-Z0-9-._]+@[a-zA-Z0-9-._]+\.[a-z]{2,}/.test(emailSub)
-const errorContainerSub = document.querySelector('body>footer>nav>section:nth-of-type(2) p:nth-of-type(2)')
+const errorContainerSub = document.querySelector('body > footer > nav > section:nth-of-type(2) p:nth-of-type(2)')
 const emailSub = document.getElementById('emailsub')
-const submitButtonSub = document.querySelector('body>footer>nav form button')
+const submitButtonSub = document.querySelector('body > footer > nav form button')
 
 const eventInputEmailSub = function (event) {
   if (emailCheckSub(emailSub.value)) {
@@ -15,7 +15,7 @@ const eventInputEmailSub = function (event) {
   }
 }
 
-document.querySelector('body>footer>nav form')
+document.querySelector('body > footer > nav form')
         .addEventListener('submit', (event) => {
           eventInputEmailSub()
 

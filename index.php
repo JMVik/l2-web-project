@@ -31,7 +31,7 @@ $postarticleexist = new PostArticle();
             include("assets/templates/navigation.php");
         ?>
         <section>
-            <img src="assets/img/head_img2.png" alt="">
+            <img src="assets/img/head_img2.png" alt="Photo des personnes du choeur">
         </section>
     </header>
     <main>
@@ -62,7 +62,7 @@ $postarticleexist = new PostArticle();
                     if ($imageData) {
                         $data = base64_encode($imageData['data']);
                         $type = $imageData['type'];
-                        echo "<img src='data:$type;base64,$data'>";
+                        echo "<img src='data:$type;base64,$data' alt='Image événement'>";
                     }
                 ?>
                 </section>
@@ -101,7 +101,7 @@ $postarticleexist = new PostArticle();
                     if ($imageData) {
                         $data = base64_encode($imageData['data']);
                         $type = $imageData['type'];
-                        echo "<img src='data:$type;base64,$data'>";
+                        echo "<img src='data:$type;base64,$data' alt='Image article'>";
                     }
                 ?>
                 </section>

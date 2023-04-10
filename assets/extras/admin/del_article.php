@@ -39,16 +39,16 @@ if (isset($_POST['delete']) && isset($_SESSION['user']['id']) && $_SESSION['user
     <p>
         <b>
         <?php if (isset($_POST['delete']) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-        <?= $t['del_article']['msg_success'] ?>
-        <a href='/../../../index.php'><?= $t['del_article']['link'] ?></a>
+            <?= $t['del_article']['msg_success'] ?>
+            <a href='/../../../index.php'><?= $t['del_article']['link'] ?></a>
         <?php elseif (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-        <?= $t['del_article']['msg_failure'] ?>
-        <a href='/../../../index.php'><?= $t['del_article']['link'] ?></a>
-        <?php header("Refresh: 5; url=/../../../index.php"); ?>
+            <?= $t['del_article']['msg_failure'] ?>
+            <a href='/../../../index.php'><?= $t['del_article']['link'] ?></a>
+            <?php header("Refresh: 5; url=/../../../index.php"); ?>
         <?php else : ?>
-        <?= $t['del_article']['msg_noperm'] ?>
-        <a href='/../../../index.php'><?= $t['del_article']['link'] ?></a>
-        <?php header("Refresh: 5; url=/../../../index.php"); ?>
+            <?= $t['del_article']['msg_noperm'] ?>
+            <a href='/../../../index.php'><?= $t['del_article']['link'] ?></a>
+            <?php header("Refresh: 5; url=/../../../index.php"); ?>
         <?php endif; ?>
         </b>
     </p>

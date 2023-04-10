@@ -24,12 +24,12 @@ if( isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null ) {
     <p>
         <b>
         <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null) : ?>
-        <?= $t['logout']['msg_success'] ?>
-        <a href='/../../index.php'><?= $t['logout']['link'] ?></a>
+            <?= $t['logout']['msg_success'] ?>
+            <a href='/../../index.php'><?= $t['logout']['link'] ?></a>
         <?php else : ?>
-        <?= $t['logout']['msg_failure'] ?>
-        <a href='/../../index.php'><?= $t['logout']['link'] ?></a>
-        <?php header("Refresh: 5; url=/../../index.php"); ?>
+            <?= $t['logout']['msg_failure'] ?>
+            <a href='/../../index.php'><?= $t['logout']['link'] ?></a>
+            <?php header("Refresh: 5; url=/../../index.php"); ?>
         <?php endif; ?>
         </b>
     </p>

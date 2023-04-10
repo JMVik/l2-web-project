@@ -23,31 +23,29 @@ session_start();
             include("assets/templates/navigation.php");
         ?>
     </header>
-    <main>
-        <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-        <section>
-            <ul>
-                <li><a href="#" onclick="loadTabContent('admin_nav1', 'event')"><?= $t['admin']['add_event'] ?></a></li>
-                <li><a href="#" onclick="loadTabContent('admin_nav2', 'event')"><?= $t['admin']['add_article'] ?></a></li>
-                <li><a href="#" onclick="loadTabContent('admin_nav3', 'event')"><?= $t['admin']['del_event'] ?></a></li>
-                <li><a href="#" onclick="loadTabContent('admin_nav4', 'event')"><?= $t['admin']['del_article'] ?></a></li>
-            </ul>
-        </section>
-        <section><?= $t['admin']['select'] ?></section>
-        <?php else : ?>
+    <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
+        <main>
+            <section>
+                <ul>
+                    <li><a href="#" onclick="loadTabContent('admin_nav1', 'event')"><?= $t['admin']['add_event'] ?></a></li>
+                    <li><a href="#" onclick="loadTabContent('admin_nav2', 'event')"><?= $t['admin']['add_article'] ?></a></li>
+                    <li><a href="#" onclick="loadTabContent('admin_nav3', 'event')"><?= $t['admin']['del_event'] ?></a></li>
+                    <li><a href="#" onclick="loadTabContent('admin_nav4', 'event')"><?= $t['admin']['del_article'] ?></a></li>
+                </ul>
+            </section>
+            <section><?= $t['admin']['select'] ?></section>
+        </main>
+        <footer>
+            <?php
+                include("assets/templates/foot.php");
+            ?>
+        </footer>
+    <?php else : ?>
         <article>
             <p><?= $t['admin']['msg_noperm'] ?></p>
             <a href="index.php"><?= $t['admin']['link'] ?></a>
             <?php header("Refresh: 5; url=/../../../index.php"); ?>
         </article>
-        <?php endif; ?>
-    </main>
-    <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-    <footer>
-        <?php
-            include("assets/templates/foot.php");
-        ?>
-    </footer>
     <?php endif; ?>
 </body>
 </html>

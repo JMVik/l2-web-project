@@ -1,7 +1,7 @@
 const emailCheck = (email) => /[a-zA-Z0-9-._]+@[a-zA-Z0-9-._]+\.[a-z]{2,}/.test(email)
-const errorContainer = document.querySelector('main>form p:first-of-type')
+const errorContainer = document.querySelector('main > form p:first-of-type')
 const email = document.getElementById('email')
-const submitButton = document.querySelector('main>form button')
+const submitButton = document.querySelector('main > form button')
 
 const eventInputEmail = function (event) {
   if (emailCheck(email.value)) {
@@ -15,7 +15,7 @@ const eventInputEmail = function (event) {
   }
 }
 
-document.querySelector('main>form')
+document.querySelector('main > form')
         .addEventListener('submit', (event) => {
           eventInputEmail()
 

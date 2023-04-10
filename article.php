@@ -16,7 +16,7 @@ $postarticleexist = new PostArticle();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evénement</title>
+    <title>Articles</title>
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
     <link rel="stylesheet" href="assets/css/styleeventarticle.css">
@@ -37,7 +37,7 @@ $postarticleexist = new PostArticle();
         <section>
             <?php foreach ($postarticle->getPosts() as $article) : ?>
             <article>
-            <h3><?= $article['title']; ?></h3>
+                <h3><?= $article['title']; ?></h3>
                 <section>
                 <?php
                     $postImageId = new PostArticle();
@@ -49,7 +49,7 @@ $postarticleexist = new PostArticle();
                     if ($imageData) {
                         $data = base64_encode($imageData['data']);
                         $type = $imageData['type'];
-                        echo "<img src='data:$type;base64,$data'>";
+                        echo "<img src='data:$type;base64,$data' alt='Image article'>";
                     }
                 ?>
                 </section>

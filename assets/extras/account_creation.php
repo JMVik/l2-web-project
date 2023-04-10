@@ -40,16 +40,16 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
         <b>
         <?php if (isset($_POST['email']) && isset($_POST['password'])) : ?>
             <?php if ($user) : ?>
-            <?= $t['account_creation']['msg_success'] ?>
-            <a href='/../../login.php'><?= $t['account_creation']['linklog'] ?></a>
+                <?= $t['account_creation']['msg_success'] ?>
+                <a href='/../../login.php'><?= $t['account_creation']['linklog'] ?></a>
             <?php else : ?>
-            <?= $t['account_creation']['msg_failure_email'] ?>
-            <a href='/../../signin.php'><?= $t['account_creation']['linksign'] ?></a>
+                <?= $t['account_creation']['msg_failure_email'] ?>
+                <a href='/../../signin.php'><?= $t['account_creation']['linksign'] ?></a>
             <?php endif; ?>
         <?php else : ?>
-        <?= $t['account_creation']['msg_failure'] ?>
-        <a href='/../../signin.php'><?= $t['account_creation']['linklog'] ?></a>
-        <?php header("Refresh: 5; url=/../../login.php"); ?>
+            <?= $t['account_creation']['msg_failure'] ?>
+            <a href='/../../signin.php'><?= $t['account_creation']['linklog'] ?></a>
+            <?php header("Refresh: 5; url=/../../login.php"); ?>
         <?php endif; ?>
         </b>
     </p>

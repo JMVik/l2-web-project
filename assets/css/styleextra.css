@@ -1,21 +1,21 @@
 body {
-    background-image: url("/../../assets/img/background.png");
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    color: #0B3948;
+  background-image: url("/../../assets/img/background.png");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: #0B3948;
 }
 
 p {
-    margin: 20px;
-    margin-top: 60px;
-    text-align: center;
+  margin: 20px;
+  margin-top: 60px;
+  text-align: center;
 }
 
 p a {
-    text-decoration: none;
-    color: #0B3948;
+  text-decoration: none;
+  color: #0B3948;
 }
 
 p a:hover {
-    color: #416165;
+  color: #416165;
 }
