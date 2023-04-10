@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+require_once "assets/models/PostEvent.php";
+require_once "assets/models/PostArticle.php";
+require_once "assets/models/Image.php";
+
+$postevent = new PostEvent();
+$postarticle = new PostArticle();
+$posteventexist = new PostEvent();
+$postarticleexist = new PostArticle();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +20,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Opus Ensemble Vocal Féminin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/stylehome.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
-    <?php
-    /*
-        $langueNavigateur = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        parse_str($_SERVER['QUERY_STRING'], $params);
-        if (!isset($params['lang'])) {
-            header('Location: ' . $_SERVER['QUERY_STRING'] . '?lang=' . $langueNavigateur);
-            exit();
-        }
-    */
-    ?>
+    <script src="assets/js/verif_sub.js" defer></script>
 </head>
 <body>
     <header>
@@ -31,44 +36,86 @@
     </header>
     <main>
         <h2><?= $t['index']['namegroup'] ?></h2>
-        <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."    
-        </p> 
+        <section></section>
+        <p><?= $t['index']['presentation'] ?></p> 
         <nav>
             <h2><?= $t['index']['nextevent'] ?></h2>
+            <p></p>
+            <?php if ($posteventexist->getPosts() == NULL) : ?>
+            <h2><?= $t['index']['no_event'] ?></h2>
+            <?php else : ?>
+            <section>
+            <?php $count = 0; foreach ($postevent->getPosts() as $event) : 
+                if ($count >= 3) break;
+                $count++;
+            ?>
             <article>
+                <h3><?= $event['title']; ?></h3>
                 <section>
-                    <img src="assets/img/test.jpg" alt="">
-                    <h3>Evenement 1</h3>
-                    <h4>14 février</h4>
+                <?php
+                    $postImageId = new PostEvent();
+                    $imageId = $postImageId->getImageId($event['id']);
+
+                    $image = new Image();
+                    $imageData = $image->getImageTypeData($imageId);
+
+                    if ($imageData) {
+                        $data = base64_encode($imageData['data']);
+                        $type = $imageData['type'];
+                        echo "<img src='data:$type;base64,$data'>";
+                    }
+                ?>
+                </section>
+                <section>
+                    <p><?= $event['content']; ?></p>
                 </section>
             </article>
+            <?php endforeach; ?>
+            </section>
             <footer>
-                <button>
-                    <span>Voir plus</span>
-                </button>
+                <a href="event.php"><b><?= $t['index']['seemore'] ?></b></a>
             </footer>
+            <?php endif; ?>
         </nav>
         <nav>
             <h2><?= $t['index']['article'] ?></h2>
+            <p></p>
+            <?php if ($postarticleexist->getPosts() == NULL) : ?>
+            <h2><?= $t['index']['no_article'] ?></h2>
+            <?php else : ?>
+            <section>
+            <?php $count = 0; foreach ($postarticle->getPosts() as $article) : 
+                if ($count >= 6) break;
+                $count++;
+            ?>
             <article>
-                <header>
-                    <img src="" alt="">
-                </header>
+                <h3><?= $article['title']; ?></h3>
                 <section>
-                    <h3></h3>
-                    <p></p>
+                <?php
+                    $postImageId = new PostArticle();
+                    $imageId = $postImageId->getImageId($article['id']);
+
+                    $image = new Image();
+                    $imageData = $image->getImageTypeData($imageId);
+
+                    if ($imageData) {
+                        $data = base64_encode($imageData['data']);
+                        $type = $imageData['type'];
+                        echo "<img src='data:$type;base64,$data'>";
+                    }
+                ?>
                 </section>
-                <footer>
-                    <button>
-                        <span>Voir plus</span>
-                    </button>
-                </footer>
+                <section>
+                    <p><?= $article['content']; ?></p>
+                </section>
             </article>
+            <?php endforeach; ?>
+            </section>
+            <footer>
+                <a href="article.php"><b><?= $t['index']['seemore'] ?></b></a>
+            </footer>
+            <?php endif; ?>
         </nav>
-        <button>
-            <span>Voir plus</span>
-        </button>
     </main>
     <footer>
         <?php

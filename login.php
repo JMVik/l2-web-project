@@ -1,26 +1,6 @@
 <?php
 
-require_once 'assets/models/User.php';
-
 session_start();
-
-$user = new User();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $loggedInUser = $user->loginUser($email, $password);
-
-    if ($loggedInUser) {
-        $_SESSION['user'] = $loggedInUser;
-        http_response_code(200);
-    } else {
-        http_response_code(401);
-    }
-} else {
-    http_response_code(400);
-}
 
 ?>
 
@@ -31,12 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page de connexion</title>
-    <script src="assets/js/verif_form.js" defer></script>
-    <script src="assets/js/login_form.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/stylelogin.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
+    <script src="assets/js/verif_login.js" defer></script>
+    <script src="assets/js/verif_sub.js" defer></script>
 </head>
 <body>
     <header>
@@ -44,25 +23,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             include("assets/templates/navigation.php");
         ?>
     </header>
+    <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
+    <p>
+        <b>
+        <?= $t['login']['msg_connected'] ?>
+        <a href='index.php'><?= $t['msg']['link'] ?></a>
+        <?php header("Refresh: 5; url=index.php"); ?>
+        </b>
+    </p>
+    <?php else : ?>
     <main>
-        <form method="post" action="login.php">
+        <form method="post" action="/assets/extras/account_connection.php">
             <h1><?= $t['login']['login_form'] ?></h1>
             <label for="email"><b><?= $t['login']['email'] ?></b></label>
-            <input id="email" type="email">
+            <input id="email" type="email" name="email">
             <p></p>
             <label><b><?= $t['login']['password'] ?></b></label>
-            <input type="password" id="password">
+            <input type="password" name="password">
             <p></p>
-            <button type="submit" name="submit"><b><?= $t['login']['login'] ?></b></button>
+            <button type="submit" name="submit"><b><?= $t['login']['login_button'] ?></b></button>
         </form>
-        <?php if (isset($errorMessage)): ?>
-        <p><?php echo $errorMessage; ?></p>
-        <?php endif; ?>
     </main>
     <footer>
         <?php
             include("assets/templates/foot.php");
         ?>
     </footer>
+    <?php endif; ?>
 </body>
 </html>

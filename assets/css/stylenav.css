@@ -1,6 +1,8 @@
-* {
-    box-sizing: border-box;
-  }
+body {
+    margin: 0;
+    background-image: url("/../../assets/img/background.png");
+    background-size: contain;
+}
 
 header > nav {
     display: flex;
@@ -48,7 +50,7 @@ header > nav ul > li > ul {
     display: none;
     position: absolute;
     background-color: #0B3948;
-    min-width: 140px;
+    min-width: 160px;
     padding: 0;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
@@ -73,9 +75,25 @@ header > nav ul > li > ul > li > a:hover {
 header > nav ul > li:first-child:hover > ul {
     display: block;
 }
-  
+
 header > nav > ul > li:nth-child(2) > a {
     display: none;
+}
+  
+header > nav > ul > li:nth-child(2) > a:nth-child(1) {
+    display: inline-block;
+        color: #D9DBF1;
+        text-decoration: none;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-family: Arial, sans-serif;
+        font-weight: 550;
+}
+
+header > nav > ul > li {
+    margin-right: 16px;
+    margin-left: 16px;
 }
 
 header > nav > ul > li:first-child {
@@ -97,10 +115,6 @@ header > nav > ul > li:nth-child(2) {
         font-family: Arial, sans-serif;
         font-weight: 550;
     }
-    header > nav > ul > li {
-        margin-right: 16px;
-        margin-left: 16px;
-    }
 }
 
 @media (min-width: 992px) {
@@ -120,40 +134,7 @@ header > nav > ul > li:nth-child(2) > a:hover {
     color: #416165;
 }
   
-header > nav ul > li:nth-child(3) input {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    float: left;
-    width: 80%;
-    max-width: 200px;
-    background: #ACB0BD;
-    color: #416165;
-}
-  
-header > nav ul > li:nth-child(3) button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #ACB0BD;
-    color: #416165;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-header > nav ul > li:nth-child(3) button:hover {
-    background: #416165;
-    color: #D9DBF1;
-}
-
-header > nav ul > li:nth-child(3)::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-  
-header > nav ul > li:nth-child(4) select {
+header > nav ul > li:nth-child(3) select {
     padding: 5px;
     border: none;
     background-color: #ACB0BD;

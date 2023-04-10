@@ -14,8 +14,10 @@ class User extends Database
     {
         $this->pdo->query('CREATE TABLE IF NOT EXISTS user (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name VARCHAR(100) NOT NULL,
             email VARCHAR(200) NOT NULL UNIQUE,
-            password VARCHAR(100) NOT NULL
+            password VARCHAR(100) NOT NULL,
+            isadmin BOOLEAN NOT NULL DEFAULT 0
         )');
     }
 
@@ -25,32 +27,35 @@ class User extends Database
                          ->fetchAll();
     }
 
-    public function createUser(string $email, string $password)
+    public function checkEMailUnique(string $email)
     {
-        $stmt = $this->pdo->prepare("INSERT INTO user ('email', 'password') VALUES (:email, :password)");
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) as count FROM user WHERE email = :email");
+        $stmt->bindValue(':email', htmlspecialchars($email));
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_NUM);
+
+        return $result[0];
+    }
+
+    public function createUser(string $name, string $email, string $password)
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO user ('name', 'email', 'password') VALUES (:name, :email, :password)");
+        $stmt->bindValue(':name', htmlspecialchars($name));
         $stmt->bindValue(':email', htmlspecialchars($email));
         $stmt->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
         $stmt->execute();
     }
 
-    public function getUserByEmail(string $email)
-{
-    $stmt = $this->pdo->prepare('SELECT * FROM user WHERE email = :email');
-    $stmt->bindValue(':email', $email);
-    $stmt->execute();
-    return $stmt->fetch();
-}
+    public function loginUser(string $email, string $password) {
+        $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
+        $stmt->bindValue(':email', htmlspecialchars($email));
+        $stmt->execute();
+        $user = $stmt->fetch();
 
-public function loginUser(string $email, string $password) {
-    $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
-    $stmt->bindValue(':email', htmlspecialchars($email));
-    $stmt->execute();
-    $user = $stmt->fetch();
-
-    if ($user && password_verify($password, $user['password'])) {
-        return $user;
-    } else {
-        return false;
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
+        } else {
+            return false;
+        }
     }
-}
 }

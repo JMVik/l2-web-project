@@ -3,10 +3,12 @@ const submitButton = document.querySelector('main>form>button');
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
-    const email = form.querySelectorAll('input')[0].value;
-    const password = form.querySelectorAll('input')[1].value;
+    const name = form.querySelectorAll('input')[0].value;
+    const email = form.querySelectorAll('input')[1].value;
+    const password = form.querySelectorAll('input')[2].value;
 
     const data = new FormData();
+    data.append('name', name);
     data.append('email', email);
     data.append('password', password);
 
@@ -16,8 +18,7 @@ submitButton.addEventListener('click', function(event) {
     })
     .then(function(response) {
         if (response.ok) {
-            alert('Utilisateur créé avec succès !');
-            form.reset();
+            window.location.href = "login.php";
         } else {
             alert('Erreur : ' + response.statusText);
         }

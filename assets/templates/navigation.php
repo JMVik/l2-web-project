@@ -1,46 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['lang'])) {
-    $_SESSION['lang'] = 'fr'; // Définir la langue par défaut ici
-}
 
-// Inclure le fichier de traduction correspondant à la langue courante
-switch ($_SESSION['lang']) {
-    case 'fr':
-        include(dirname(__FILE__) . "/../locales/fr.php");
-        break;
-    case 'en':
-        include(dirname(__FILE__) . "/../locales/en.php");
-        break;
-    case 'de':
-        include(dirname(__FILE__) . "/../locales/de.php");
-    break;
-    default:
-        include(dirname(__FILE__) . "/../locales/fr.php");
-        break;
-}
-
-// Vérifier si la langue a été changée
-if (isset($_GET['lang'])) {
-    switch ($_GET['lang']) {
-        case 'fr':
-            $_SESSION['lang'] = 'fr';
-            include(dirname(__FILE__) . "/../locales/fr.php");
-            break;
-        case 'en':
-            $_SESSION['lang'] = 'en';
-            include(dirname(__FILE__) . "/../locales/en.php");
-            break;
-        case 'de':
-            $_SESSION['lang'] = 'de';
-            include(dirname(__FILE__) . "/../locales/de.php");
-            break;
-        default:
-            $_SESSION['lang'] = 'fr';
-            include(dirname(__FILE__) . "/../locales/fr.php");
-            break;
-    }
-}
+require_once 'assets/extras/lang.php';
 
 ?>
 <nav>
@@ -49,27 +9,33 @@ if (isset($_GET['lang'])) {
             <button><img src="assets/img/nav_img.png" alt=""></button>
             <ul>
                 <li><a href="index.php"><?= $t['nav']['home'] ?></a></li>
-                <li><a href="#"><?= $t['nav']['event'] ?></a></li>
-                <li><a href="#"><?= $t['nav']['article'] ?></a></li>
+                <li><a href="event.php"><?= $t['nav']['event'] ?></a></li>
+                <li><a href="article.php"><?= $t['nav']['article'] ?></a></li>
+                <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null ) : ?>
+                <li><a href="dashboard.php"><?= $t['nav']['dashboard'] ?></a></li>
+                <li><a href="assets/extras/logout.php"><?= $t['nav']['disconnect'] ?></a></li>
+                <?php else : ?>
                 <li><a href="signin.php"><?= $t['nav']['signin'] ?></a></li>
                 <li><a href="login.php"><?= $t['nav']['login'] ?></a></li>
-                <?php if ($userLoaded['isAdmin']) : ?>
-                <li><a href="#"><?= $t['nav']['admin'] ?></a></li>
                 <?php endif; ?>
-                <li><a href="#"><?= $t['nav']['contact'] ?></a></li>
-                <li><a href="#"><?= $t['nav']['about'] ?></a></li>
+                <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
+                <li><a href="admin.php"><?= $t['nav']['admin'] ?></a></li>
+                <?php endif; ?>
+                <li><a href="contact.php"><?= $t['nav']['contact'] ?></a></li>
+                <li><a href="about.php"><?= $t['nav']['about'] ?></a></li>
             </ul>
         </li>
         <li>
             <a href="index.php"><?= $t['nav']['home'] ?></a>
-            <a href="#"><?= $t['nav']['contact'] ?></a>
-            <a href="#"><?= $t['nav']['about'] ?></a>
-        </li>
-        <li>
-            <form action="#">
-                <input type="text" placeholder="<?= $t['nav']['search'] ?>">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            <a href="contact.php"><?= $t['nav']['contact'] ?></a>
+            <a href="about.php"><?= $t['nav']['about'] ?></a>
+            <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null ) : ?>
+            <a href="dashboard.php"><?= $t['nav']['dashboard'] ?></a>
+            <a href="assets/extras/logout.php"><?= $t['nav']['disconnect'] ?></a>
+            <?php else : ?>
+            <a href="login.php"><?= $t['nav']['login'] ?></a>
+            <a href="signin.php"><?= $t['nav']['signin'] ?></a>
+            <?php endif; ?>
         </li>
         <li>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">

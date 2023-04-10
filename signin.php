@@ -1,14 +1,6 @@
 <?php
 
-require_once 'assets/models/User.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    $user = new User();
-    $user->createUser($email, $password);
-}
+session_start();
 
 ?>
 
@@ -19,12 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page d'inscription</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/stylelogin.css">
+    <link rel="stylesheet" href="assets/css/stylesignin.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
-    <script src="assets/js/verif_form.js" defer></script>
-    <script src="assets/js/signin_form.js" defer></script>
+    <script src="assets/js/verif_signin.js" defer></script>
+    <script src="assets/js/verif_sub.js" defer></script>
 </head>
 <body>
     <header>
@@ -32,14 +23,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             include("assets/templates/navigation.php");
         ?>
     </header>
+    <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
+    <p>
+        <b>
+        <?= $t['signin']['msg_connected'] ?>
+        <a href='index.php'><?= $t['signin']['link'] ?></a>
+        <?php header("Refresh: 5; url=index.php"); ?>
+        </b>
+    </p>
+    <?php else : ?>
     <main>
-        <form method="post" action="signin.php">
+        <form method="post" action="/assets/extras/account_creation.php">
             <h1><?= $t['signin']['signin_form'] ?></h1>
+            <label for="name"><b><?= $t['signin']['name'] ?></b></label>
+            <input type="text" name="name" required>
+            <p></p>
             <label for="email"><b><?= $t['signin']['email'] ?></b></label>
-            <input type="email" required>
+            <input type="email" name="email" id="email" required>
             <p></p>
             <label><b><?= $t['signin']['password'] ?></b></label>
-            <input type="password" required>
+            <input type="password" name="password" required>
             <p></p>
             <button type="submit"><b><?= $t['signin']['signin_button'] ?></b></button>
         </form>
@@ -49,5 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             include("assets/templates/foot.php");
         ?>
     </footer>
+    <?php endif; ?>
 </body>
 </html>

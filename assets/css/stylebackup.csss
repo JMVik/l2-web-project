@@ -101,3 +101,38 @@ footer nav{
                         <?php echo $name; ?>
                     </option>
                 <?php endforeach; ?>
+
+
+
+header > nav ul > li:nth-child(3) input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    float: left;
+    width: 80%;
+    max-width: 200px;
+    background: #ACB0BD;
+    color: #416165;
+}
+  
+header > nav ul > li:nth-child(3) button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #ACB0BD;
+    color: #416165;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+header > nav ul > li:nth-child(3) button:hover {
+    background: #416165;
+    color: #D9DBF1;
+}
+
+header > nav ul > li:nth-child(3)::after {
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -17,7 +17,7 @@ submitButton.addEventListener('click', function(event) {
     .then(function(response) {
         if (response.ok) {
             alert('Connecté !');
-            form.reset();
+            window.location.href = "dashboard.php";
         } else {
             alert('Erreur : ' + response.statusText);
         }
