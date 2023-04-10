@@ -1,9 +1,0 @@
-input.error {
-    background-color: rgba(255, 0, 0, 0.1);
-    border-color: red;
-  }
-  
-  form p:first-of-type {
-    color: red;
-    font-weight: bold;
-  }
