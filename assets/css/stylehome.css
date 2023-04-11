@@ -45,10 +45,15 @@ main > nav > section > article {
   border: 1px solid #ACB0BD;
   padding: 10px;
   margin: 10px;
-  max-width: 358px;
-  max-height: 572px;
+  width: 300px;
+  height: 508px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   overflow: hidden;
+}
+
+main > nav > section > article > section:first-of-type img {
+  width: 270px;
+  height: 384px;
 }
 
 main > nav > section {
@@ -57,27 +62,6 @@ main > nav > section {
   justify-content: center;
   align-items: center;
   gap: 20px;
-}
-
-@media (min-width: 768px) {
-    main > nav > section {
-      display: flex;
-      flex-direction: initial;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-}
-
-@media (min-width: 992px) {    
-    main > nav > section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }  
-    main > nav:nth-of-type(2) > section > article {
-      flex: calc(33.33% - 10px);
-    }
 }
 
 main > nav > h2:nth-of-type(2) {
@@ -102,14 +86,9 @@ main > nav > section > article > section:first-child {
   overflow: hidden;
 }
 
-main > nav > section > article > section:first-of-type img {
-  width: 338px;
-  height: 480px;
-}
-
 main > nav > section > article > section:nth-of-type(2) > p {
   display: block;
-  width: 338px;
+  width: 270px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -133,4 +112,25 @@ main > nav > footer a {
 main > nav > footer a:hover {
   background-color: #D9DBF1;
   color: #416165;
+}
+
+@media (min-width: 768px) {
+  main > nav > section {
+    display: flex;
+    flex-direction: initial;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  main > nav > section > article {
+    width: 358px;
+    height: 572px;
+  }
+  main > nav > section > article > section:first-of-type img {
+    width: 338px;
+    height: 480px;
+  }
+  main > nav > section > article > section:nth-of-type(2) > p {
+    width: 338px;
+  }
 }
