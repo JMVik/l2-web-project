@@ -10,17 +10,20 @@ html {
 body {
   min-height: 100%;
   position: relative;
-  padding-bottom: 726px;
+}
+
+body > main {
+  padding-bottom: 706px;
 }
 
 @media (min-width: 768px) {
-    body {
+    body > main {
       padding-bottom: 374px;
     }
 }
 
 @media (min-width: 992px) {
-    body {
+    body > main {
       padding-bottom: 217px;
     }
 }
@@ -28,8 +31,21 @@ body {
 body > footer {
   position: absolute;
   bottom: 0;
-  left:0;
-  right: 0;
+  width: 100%;
+  background-color: #0B3948;
+  height: 706px;
+}
+
+@media (min-width: 768px) {
+  body > footer {
+    height: 374px;
+  }
+}
+
+@media (min-width: 992px) {
+  body > footer {
+    height: 217px;
+  }
 }
 
 body > footer > nav {
@@ -38,7 +54,6 @@ body > footer > nav {
   align-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  background-color: #0B3948;
   padding: 16px;
   font-family: Arial, sans-serif;
 }

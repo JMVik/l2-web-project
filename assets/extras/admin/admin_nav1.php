@@ -35,17 +35,14 @@ require_once 'langadmin.php';
 <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
     <article>
         <form action="/assets/extras/admin/add_event.php" method="post" enctype="multipart/form-data">
-            <label><?= $t['admin_nav']['title'] ?>
-            <input type="text" name="title"/>
-            </label>
+            <label for="title"><?= $t['admin_nav']['title'] ?></label>
+            <input type="text" id="title" name="title"/>
             <p></p>
-            <label><?= $t['admin_nav']['image'] ?>
-            <input type="file" name="image"/>
-            </label>
+            <label for="file"><?= $t['admin_nav']['image'] ?></label>
+            <input type="file" id="file" name="image"/>
             <p></p>
-            <label><?= $t['admin_nav']['content'] ?>
-            <textarea name="content"></textarea>
-            </label>
+            <label for="content"><?= $t['admin_nav']['content'] ?></label>
+            <textarea name="content" id="content"></textarea>
             <p></p>
             <button type="submit"><?= $t['admin_nav']['create_event'] ?></button>
         </form>
