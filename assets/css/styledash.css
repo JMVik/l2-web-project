@@ -14,10 +14,6 @@ body > p a {
   text-decoration: none;
 }
 
-body > p a:hover {
-  color: #416165;
-}
-
 main {
   display: flex;
   justify-content: center;
@@ -43,6 +39,7 @@ main img {
   border-radius: 50%;
   border: 2px solid #0B3948;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 
 main > section > article:first-of-type {
@@ -66,16 +63,19 @@ main h2 {
   
 main p {
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 16px;
 }
 
 main a {
   margin-right: 10px;
   text-decoration: none;
   color: #0B3948;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-right: auto;
 }
 
-main a:hover {
-  color: #416165;
+body a:hover {
+  color: #D9DBF1;
 }
   

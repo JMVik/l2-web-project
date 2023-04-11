@@ -6,7 +6,7 @@ require_once 'assets/extras/lang.php';
 <nav>
     <ul>
         <li>
-            <button><img src="assets/img/nav_img.png" alt="Bouton Paramètre"></button>
+            <button><img src="assets/img/nav_img.webp" alt="Bouton Paramètre"></button>
             <ul>
                 <li><a href="index.php"><?= $t['nav']['home'] ?></a></li>
                 <li><a href="event.php"><?= $t['nav']['event'] ?></a></li>

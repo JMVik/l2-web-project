@@ -36,58 +36,6 @@ main > p {
   color: #0B3948; 
 }
 
-main > nav > section {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  justify-items: center;
-  gap: 20px;
-}
-
-main > nav:nth-of-type(2) > section {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 1fr);
-  justify-items: center;
-  gap: 20px;
-}
-
-@media (min-width: 768px) {
-    main > nav > section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    main > nav > section > article {
-      flex-basis: calc(33.33% - 10px);
-    }
-}
-
-@media (min-width: 992px) {    
-    main > nav > section {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    main > nav:nth-of-type(2) > section {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-}
-
-main > nav > h2:nth-of-type(2) {
-  display: block;
-  text-align: center;
-  margin: 0;
-  padding-top: 20px;
-  padding-bottom: 12px;
-  color: #0B3948;
-  font-weight: 500;
-  font-size: 20px;
-}
-
 main > nav > section > article {
   display: flex;
   flex-direction: column;
@@ -101,6 +49,46 @@ main > nav > section > article {
   max-height: 572px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   overflow: hidden;
+}
+
+main > nav > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+    main > nav > section {
+      display: flex;
+      flex-direction: initial;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+}
+
+@media (min-width: 992px) {    
+    main > nav > section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }  
+    main > nav:nth-of-type(2) > section > article {
+      flex: calc(33.33% - 10px);
+    }
+}
+
+main > nav > h2:nth-of-type(2) {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 12px;
+  color: #0B3948;
+  font-weight: 500;
+  font-size: 20px;
 }
   
 main h3 {

@@ -27,7 +27,7 @@ session_start();
     <main>
         <section>
             <article>
-                <img src="assets/img/avatar.png" alt="Avatar">
+                <img src="assets/img/avatar.webp" alt="Avatar">
                 <h2><?php echo $_SESSION['user']['name'] ?></h2>
             </article>
             <article>
