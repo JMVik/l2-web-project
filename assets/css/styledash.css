@@ -47,7 +47,7 @@ main > section > article:first-of-type {
   flex-direction: row;
   width: 100%;
   align-items: center;
-  gap: 60px;
+  gap: 0;
   margin: 10px;
 }
   
@@ -78,4 +78,9 @@ main a {
 body a:hover {
   color: #D9DBF1;
 }
-  
+
+@media (min-width: 768px) {
+  main > section > article:first-of-type {
+    gap: 60px;
+  }
+}

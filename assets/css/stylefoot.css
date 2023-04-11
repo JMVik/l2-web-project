@@ -13,7 +13,7 @@ body {
 }
 
 body > main {
-  padding-bottom: 706px;
+  padding-bottom: 786px;
 }
 
 body > footer {
@@ -21,7 +21,7 @@ body > footer {
   bottom: 0;
   width: 100%;
   background-color: #0B3948;
-  height: 706px;
+  height: 786px;
 }
 
 body > footer > nav {
@@ -106,7 +106,7 @@ footer > nav > section:nth-of-type(3) > ul {
   display: grid;
   gap: 16px;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -139,6 +139,9 @@ footer > nav > section a:hover {
     align-items: baseline;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+  }
+  footer > nav > section:nth-of-type(3) > ul {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

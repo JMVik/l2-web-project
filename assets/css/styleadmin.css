@@ -1,7 +1,12 @@
 main {
   display: flex;
+  flex-direction: column;
   margin: 10px;
   font-family: Arial, sans-serif;
+}
+
+main > section:last-of-type {
+  margin-bottom: 5%;
 }
 
 main > section:first-of-type ul {
@@ -74,4 +79,10 @@ body > article a {
 
 body > article a:hover {
   color: #416165;
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: initial;
+  }
 }

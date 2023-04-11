@@ -16,10 +16,9 @@ body > p a:hover {
 }
 
 main {
-  width:400px;
-  margin:0 auto;
+  width:280px;
+  margin: 0 auto;
   margin-top: 5%;
-  margin-bottom: 5%;
   font-family: Arial, sans-serif;
 }
 
@@ -30,6 +29,7 @@ main form {
   background: #fff;
   color: #0B3948;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 5%;
 }
 
 main h1{
@@ -75,4 +75,10 @@ main button:hover {
   color: #0B3948;
   padding: 13px 20px;
   border: 1px solid #0B3948;
+}
+
+@media (min-width: 768px) {
+  main {
+    width: 400px;
+  }
 }
