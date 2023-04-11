@@ -28,7 +28,9 @@ $postevents = $postevent->getPosts();
                     <td><?php echo $postevent['title']; ?></td>
                     <td>
                         <form method="post" action="/assets/extras/admin/del_event.php" onsubmit="return confirm('<?= $t['admin_nav']['confirm'] ?>');">
+                            <label>
                             <input type="hidden" name="id" value="<?php echo $postevent['id']; ?>">
+                            </label>
                             <button type="submit" name="delete"><?= $t['admin_nav']['delete'] ?></button>
                         </form>
                     </td>

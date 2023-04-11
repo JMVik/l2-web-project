@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['image']) && isset($
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <meta name="description" content="Page d'ajout d'un article.">
     <title>Ajout Article</title>
     <link rel="stylesheet" href="/../../../assets/css/styleextra.css">
 </head>

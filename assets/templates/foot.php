@@ -12,9 +12,10 @@ require_once 'assets/extras/lang.php';
     </section>
     <section>
         <h3><?= $t['foot']['newsletter_title'] ?></h3>
-        <p><?= $t['foot']['newsletter_p'] ?></p>
         <form action="assets/extras/subscription.php" method="post">
+            <label><?= $t['foot']['newsletter_p'] ?>
             <input type="email" name="emailsub" id="emailsub" placeholder="<?= $t['foot']['email_entry'] ?>" required>
+            </label>
             <button type="submit" name="submitsub"><?= $t['foot']['subscribe_button'] ?></button>
         </form>
         <p></p>

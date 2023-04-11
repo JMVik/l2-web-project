@@ -8,7 +8,8 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <meta name="description" content="Page permettant de se connecter à un compte.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page de connexion</title>
     <link rel="stylesheet" href="assets/css/stylelogin.css">
@@ -35,11 +36,13 @@ session_start();
     <main>
         <form method="post" action="/assets/extras/account_connection.php">
             <h1><?= $t['login']['login_form'] ?></h1>
-            <label for="email"><b><?= $t['login']['email'] ?></b></label>
+            <label><b><?= $t['login']['email'] ?></b>
             <input type="email" name="email">
+            </label>
             <p></p>
-            <label><b><?= $t['login']['password'] ?></b></label>
+            <label><b><?= $t['login']['password'] ?></b>
             <input type="password" name="password">
+            </label>
             <p></p>
             <button type="submit" name="submit"><b><?= $t['login']['login_button'] ?></b></button>
         </form>

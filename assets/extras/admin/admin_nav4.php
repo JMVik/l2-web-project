@@ -28,7 +28,9 @@ $postarticles = $postarticle->getPosts();
                     <td><?php echo $postarticle['title']; ?></td>
                     <td>
                         <form method="post" action="/assets/extras/admin/del_article.php" onsubmit="return confirm('<?= $t['admin_nav']['confirm'] ?>');">
+                            <label>
                             <input type="hidden" name="id" value="<?php echo $postarticle['id']; ?>">
+                            </label>
                             <button type="submit" name="delete"><?= $t['admin_nav']['delete'] ?></button>
                         </form>
                     </td>

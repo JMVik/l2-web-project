@@ -17,8 +17,10 @@ $postarticleexist = new PostArticle();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <meta name="description" content="Page d'accueil">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0>
     <title>Opus Ensemble Vocal Féminin</title>
     <link rel="stylesheet" href="assets/css/stylehome.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
@@ -31,7 +33,7 @@ $postarticleexist = new PostArticle();
             include("assets/templates/navigation.php");
         ?>
         <section>
-            <img src="assets/img/head_img2.png" alt="Photo des personnes du choeur">
+            <img src="assets/img/head_img2.webp" alt="Photo des personnes du choeur">
         </section>
     </header>
     <main>

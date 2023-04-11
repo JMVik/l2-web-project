@@ -66,6 +66,7 @@ header > nav ul > li > ul > li > a {
   color:#D9DBF1;
   font-family: Arial, sans-serif;
   font-weight: 550;
+  height: 48px;
 }
 
 header > nav ul > li > ul > li > a:hover {
@@ -82,13 +83,16 @@ header > nav > ul > li:nth-of-type(2) > a {
   
 header > nav > ul > li:nth-of-type(2) > a:first-of-type {
   display: inline-block;
+  justify-content: center;
   color: #D9DBF1;
   text-decoration: none;
   font-size: 16px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
   font-family: Arial, sans-serif;
   font-weight: 550;
+  height: 48px;
 }
 
 header > nav > ul > li {
@@ -107,31 +111,43 @@ header > nav > ul > li:nth-of-type(2) {
 @media (min-width: 768px) {
     header > nav > ul > li:nth-of-type(2) > a:not(:last-of-type) {
       display: inline-block;
+      justify-content: center;
       color: #D9DBF1;
       text-decoration: none;
       font-size: 16px;
-      margin-left: 20px;
-      margin-right: 20px;
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
       font-family: Arial, sans-serif;
       font-weight: 550;
+      height: 48px;
+      text-align: center;
     }
 }
 
 @media (min-width: 992px) {
     header > nav > ul > li:nth-of-type(2) > a {
       display: inline-block;
+      justify-content: center;
       color: #D9DBF1;
       text-decoration: none;
       font-size: 16px;
-      margin-left: 20px;
-      margin-right: 20px;
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
       font-family: Arial, sans-serif;
       font-weight: 550;
+      height: 48px;
+      text-align: center;
     }
 }
 
 header > nav > ul > li:nth-of-type(2) > a:hover {
   color: #416165;
+}
+
+header > nav ul > li:nth-of-type(3) label {
+  display: none;
 }
   
 header > nav ul > li:nth-of-type(3) select {

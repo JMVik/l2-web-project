@@ -39,7 +39,8 @@ require_once 'assets/extras/lang.php';
         </li>
         <li>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-                <select name="lang" onchange="this.form.submit()">
+                <label for="lang">Language</label>
+                <select name="lang" id="lang" onchange="this.form.submit()">
                     <option value="fr" <?php if ($_SESSION['lang'] == 'fr') echo 'selected'; ?>>Français</option>
                     <option value="en" <?php if ($_SESSION['lang'] == 'en') echo 'selected'; ?>>English</option>
                     <option value="de" <?php if ($_SESSION['lang'] == 'de') echo 'selected'; ?>>Deutsch</option>

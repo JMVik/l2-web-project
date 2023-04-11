@@ -80,15 +80,16 @@ footer > nav > section:first-of-type a {
   color: #D9DBF1;
 }
 
-footer > nav > section:first-of-type a:hover {
+footer > nav > section a:hover {
   color: #416165;
 }
 
 footer > nav > section:nth-of-type(2) > form {
   display: flex;
+  flex-wrap: wrap;
 }
 
-footer > nav > section:nth-of-type(2) p {
+footer > nav > section:nth-of-type(2) label {
   margin: 0;
   margin-bottom: 10px;
   color: #D9DBF1;
@@ -101,14 +102,14 @@ footer > nav > section:nth-of-type(2) input {
   width: 50%;
   max-width: 200px;
   background: #ACB0BD;
-  color: #416165;
+  color: #0B3948;
 }
 
 footer > nav > section:nth-of-type(2) button {
   width: 40%;
   padding: 10px;
   background: #ACB0BD;
-  color: #416165;
+  color: #0B3948;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -144,10 +145,6 @@ footer > nav > section:nth-of-type(3) a {
   text-decoration: none;
 }
 
-footer > nav > section:nth-of-type(3) a:hover {
-  color: #416165;
-}
-
 footer > nav > section:nth-of-type(4) > ul {
   list-style: none;
   margin: 0;
@@ -157,8 +154,4 @@ footer > nav > section:nth-of-type(4) > ul {
 footer > nav > section:nth-of-type(4) a {
   color: #D9DBF1;
   text-decoration: none;
-}
-
-footer > nav > section:nth-of-type(4) a:hover {
-  color: #416165;
 }
