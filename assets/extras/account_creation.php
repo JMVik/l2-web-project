@@ -34,6 +34,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta name="description" content="Page de création de compte.">
     <title>Création du compte</title>
+    <link rel="icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="/../../assets/css/styleextra.css">
 </head>
 <body>

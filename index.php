@@ -22,6 +22,7 @@ $postarticleexist = new PostArticle();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0>
     <title>Opus Ensemble Vocal Féminin</title>
+    <link rel="icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="assets/css/stylehome.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">

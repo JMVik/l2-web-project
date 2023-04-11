@@ -12,6 +12,7 @@ session_start();
     <meta name="description" content="Page permettant de se connecter à un compte.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page de connexion</title>
+    <link rel="icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="assets/css/stylelogin.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">

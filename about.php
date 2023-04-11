@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta name="description" content="Page donnant quelques informations sur l'histoire de l'association.">
     <title>A propos</title>
+    <link rel="icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
     <script src="assets/js/verif_sub.js" defer></script>
