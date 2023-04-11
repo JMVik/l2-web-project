@@ -55,7 +55,7 @@ main input {
   border: 1px solid red;
 }
 
-main form p:nth-of-type(2) {
+main form p {
   color: red;
   font-weight: bold;
 }

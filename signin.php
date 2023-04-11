@@ -39,7 +39,7 @@ session_start();
             <input type="text" name="name" required>
             <p></p>
             <label for="email"><b><?= $t['signin']['email'] ?></b></label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" required>
             <p></p>
             <label><b><?= $t['signin']['password'] ?></b></label>
             <input type="password" name="password" required>

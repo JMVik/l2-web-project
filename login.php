@@ -36,7 +36,7 @@ session_start();
         <form method="post" action="/assets/extras/account_connection.php">
             <h1><?= $t['login']['login_form'] ?></h1>
             <label for="email"><b><?= $t['login']['email'] ?></b></label>
-            <input id="email" type="email" name="email">
+            <input type="email" name="email">
             <p></p>
             <label><b><?= $t['login']['password'] ?></b></label>
             <input type="password" name="password">
