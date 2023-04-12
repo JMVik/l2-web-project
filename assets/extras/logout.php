@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once dirname(__FILE__) . '/../extras/lang.php';
+require_once __DIR__ . '/../extras/lang.php';
 
 if( isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null ) {
     session_destroy();

@@ -2,9 +2,9 @@
 
 session_start();
 
-require_once dirname(__FILE__) . '/../extras/lang.php';
+require_once __DIR__ . '/../extras/lang.php';
 
-require_once dirname(__FILE__) . "/../models/Newsletter.php";
+require_once __DIR__ . "/../models/Newsletter.php";
 
 if (isset($_POST['email'])) {
     $email = $_POST['email'];

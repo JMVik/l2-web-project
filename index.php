@@ -76,7 +76,7 @@ $postarticleexist = new PostArticle();
             <?php endforeach; ?>
             </section>
             <footer>
-                <a href="event.php"><b><?= $t['index']['seemore'] ?></b></a>
+                <a href="event.php"><b><?= $t['index']['seemoreevent'] ?></b></a>
             </footer>
             <?php endif; ?>
         </nav>
@@ -115,7 +115,7 @@ $postarticleexist = new PostArticle();
             <?php endforeach; ?>
             </section>
             <footer>
-                <a href="article.php"><b><?= $t['index']['seemore'] ?></b></a>
+                <a href="article.php"><b><?= $t['index']['seemorearticle'] ?></b></a>
             </footer>
             <?php endif; ?>
         </nav>

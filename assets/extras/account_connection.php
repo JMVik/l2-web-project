@@ -2,28 +2,42 @@
 
 session_start();
 
-require_once dirname(__FILE__) . '/../extras/lang.php';
+require_once __DIR__ . '/../extras/lang.php';
 
-require_once dirname(__FILE__) . "/../models/User.php";
+require_once __DIR__ . '/../models/User.php';
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $user = new User();
-
-    $emailExist = $user->checkEMailUnique($email);
-
-    if ($emailExist) {
-        $loggedInUser = $user->loginUser($email, $password);
-        if ($loggedInUser) {
-            $_SESSION['user'] = $loggedInUser;
-            header("Refresh: 5; url=/../../dashboard.php");
-        } else {
-            header("Refresh: 10; url=/../../login.php");
-        }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (empty($_POST['email'])) {
+        $errMsg = $t['account_connection']['msg_empty_email'];
+    }
+    if (empty($_POST['password'])) {
+        $errMsg .= $t['account_connection']['msg_empty_password'];
     } else {
-        header("Refresh: 10; url=/../../login.php");
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200) {
+            $errMsg = $t['account_connection']['msg_failure_email'];
+        }
+        if (strlen($password) < 6 || strlen($password) > 100) {
+            $errMsg .= $t['account_connection']['msg_failure_mdp'];
+        } else {
+            $user = new User();
+
+            $emailExist = $user->checkEMailUnique($email);
+    
+            if ($emailExist) {
+                $loggedInUser = $user->loginUser($email, $password);
+                if ($loggedInUser) {
+                    $_SESSION['user'] = $loggedInUser;
+                    header("Refresh: 5; url=/../../dashboard.php");
+                } else {
+                    $errMsg = $t['account_connection']['msg_failure_mdp_co'];
+                }
+            } else {
+                $errMsg = $t['account_connection']['msg_failure_email_co'];
+            }
+        }
     }
 }
 
@@ -43,21 +57,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 <body>
     <p>
         <b>
-        <?php if (isset($_POST['email']) && isset($_POST['password'])) : ?>
-            <?php if ($loggedInUser && $emailExist) : ?>
-                <?= $t['account_connection']['msg_success'] ?>
-                <a href='/../../login.php'><?= $t['account_connection']['linkdash'] ?></a>
-            <?php elseif ($emailExist) : ?>
-                <?= $t['account_connection']['msg_failure_mdp'] ?>
-                <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
-            <?php else : ?>
-                <?= $t['account_connection']['msg_failure_email'] ?>
-                <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
-            <?php endif; ?>
+        <?php if ($loggedInUser) : ?>
+            <?= $t['account_connection']['msg_success'] ?>
+            <a href='/../../login.php'><?= $t['account_connection']['linkdash'] ?></a>
         <?php else : ?>
-            <?= $t['account_connection']['msg_failure'] ?>
+            <?php echo $errMsg ?>
+            <?= $t['add_event']['msg_redir_fail'] ?>
             <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
-            <?php header("Refresh: 5; url=/../../login.php"); ?>
+            <?php header("Refresh: 10; url=/../../login.php"); ?>
         <?php endif; ?>
         </b>
     </p>

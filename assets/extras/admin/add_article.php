@@ -10,18 +10,41 @@ require_once __DIR__ . '/../../models/Image.php';
 $postarticle = new PostArticle();
 $image = new Image();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['image']) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) {
-    $name = $_FILES['image']['name'];
-    $type = $_FILES['image']['type'];
-    $data = file_get_contents($_FILES['image']['tmp_name']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) {
+    if (empty($_POST['title'])) {
+        $errMsg = $t['add_article']['msg_empty_title'];
+    }
+    if (empty($_POST['image'])) {
+        $errMsg .= $t['add_article']['msg_empty_img'];
+    }
+    if (empty($_POST['content'])) {
+        $errMsg .= $t['add_article']['msg_empty_content'];
+    } else {
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $allowed_ext = array('png', 'jpg', 'jpeg', 'gif');
+        $img_ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
-    $image->createImage($name, $type, $data);
+        if (strlen($title) < 2 || strlen($title) > 100) {
+            $errMsg = $t['add_article']['msg_failure_title'];
+        } if (!in_array($img_ext, $allowed_ext)) {
+            $errMsg .= $t['add_article']['msg_failure_img'];
+        } if (strlen($content) < 2 || strlen($content) > 300) {
+            $errMsg .= $t['add_article']['msg_failure_content'];
+        } else {
+            $name = $_FILES['image']['name'];
+            $type = $_FILES['image']['type'];
+            $data = file_get_contents($_FILES['image']['tmp_name']);
 
-    $image_id = $image->getPDO()->lastInsertId();
+            $image->createImage($name, $type, $data);
 
-    $postarticle->createPost($_POST['title'], $_POST['content'], $image_id);
+            $image_id = $image->getPDO()->lastInsertId();
 
-    header("Refresh: 5; url=/../../../index.php");
+            $postarticle->createPost($_POST['title'], $_POST['content'], $image_id);
+
+            header("Refresh: 5; url=/../../../index.php");
+        }
+    }
 }
 
 ?>
@@ -40,13 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['image']) && isset($
 <body>
     <p>
         <b>
-        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['image']) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
+        <?php if ((strlen($title) >= 2 && strlen($title) <= 100) && (strlen($content) >= 2 && strlen($content) <= 100) && (in_array($img_ext, $allowed_ext)) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
             <?= $t['add_article']['msg_success'] ?>
             <a href='/../../../index.php'><?= $t['add_article']['link'] ?></a>
         <?php elseif (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
-            <?= $t['add_article']['msg_failure'] ?>
+            <?php echo $errMsg ?>
+            <?= $t['add_article']['msg_redir_fail'] ?>
             <a href='/../../../index.php'><?= $t['add_article']['link'] ?></a>
-            <?php header("Refresh: 5; url=/../../../index.php"); ?>
+            <?php header("Refresh: 10; url=/../../../index.php"); ?>
         <?php else : ?>
             <?= $t['add_article']['msg_noperm'] ?>
             <a href='/../../../index.php'><?= $t['add_article']['link'] ?></a>

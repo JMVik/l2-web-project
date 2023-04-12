@@ -38,15 +38,15 @@ session_start();
         <form method="post" action="/assets/extras/account_creation.php">
             <h1><?= $t['signin']['signin_form'] ?></h1>
             <label><b><?= $t['signin']['name'] ?></b>
-            <input type="text" name="name" required>
+            <input type="text" name="name" >
             </label>
             <p></p>
             <label><b><?= $t['signin']['email'] ?></b>
-            <input type="email" name="email" required>
+            <input type="email" name="email" >
             </label>
             <p></p>
             <label><b><?= $t['signin']['password'] ?></b>
-            <input type="password" name="password" required>
+            <input type="password" name="password" >
             </label>
             <p></p>
             <button type="submit"><b><?= $t['signin']['signin_button'] ?></b></button>

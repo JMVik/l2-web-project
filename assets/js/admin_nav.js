@@ -38,7 +38,7 @@ function loadTabContent(tabId, event) {
             submitButton.disabled = false
           } else {
             file.classList.add('error')
-            errorFileContainer.innerHTML = 'Fichier invalide<br>Invalid file'
+            errorFileContainer.innerHTML = 'Fichier invalide (extensions: png, jpg, jpeg ou gif)<br>Invalid file (extensions: png, jpg, jpeg or gif)'
             submitButton.disabled = true
           }
         }
