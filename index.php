@@ -23,9 +23,12 @@ $postarticleexist = new PostArticle();
     <meta Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0>
     <title>Opus Ensemble Vocal Féminin</title>
     <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="assets/css/stylehome.css">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
+    <script src="assets/js/more_article.js" defer></script>
     <script src="assets/js/verif_sub.js" defer></script>
 </head>
 <body>
@@ -76,7 +79,7 @@ $postarticleexist = new PostArticle();
             <?php endforeach; ?>
             </section>
             <footer>
-                <a href="event.php"><b><?= $t['index']['seemoreevent'] ?></b></a>
+                <a href="event.php"><b><?= $t['index']['seeallevent'] ?></b></a>
             </footer>
             <?php endif; ?>
         </nav>
@@ -88,7 +91,7 @@ $postarticleexist = new PostArticle();
             <?php else : ?>
             <section>
             <?php $count = 0; foreach ($postarticle->getPosts() as $article) : 
-                if ($count >= 6) break;
+                if ($count >= 3) break;
                 $count++;
             ?>
             <article>
@@ -113,9 +116,11 @@ $postarticleexist = new PostArticle();
                 </section>
             </article>
             <?php endforeach; ?>
+            <section id='article-list'></section>
             </section>
             <footer>
-                <a href="article.php"><b><?= $t['index']['seemorearticle'] ?></b></a>
+                <button id='load-more' type="submit"><b><?= $t['index']['seemorearticle'] ?></b></button>
+                <a id="allarticle" href="article.php"><b><?= $t['index']['seeallarticle'] ?></b></a>
             </footer>
             <?php endif; ?>
         </nav>

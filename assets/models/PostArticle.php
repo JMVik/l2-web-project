@@ -58,6 +58,16 @@ class PostArticle extends Database
                          ->fetchAll();
     }
 
+    public function getArticles(int $limit, int $offset)
+{
+    $stmt = $this->pdo->prepare('SELECT p.*, i.data FROM postarticle p LEFT JOIN image i ON p.imageid = i.id ORDER BY p.id ASC LIMIT :limit OFFSET :offset');
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
     public function getEventId($postId)
     {
         $stmt = $this->pdo->prepare("SELECT id FROM postarticle WHERE id = :id");
@@ -86,6 +96,14 @@ class PostArticle extends Database
         }
         
         return $result['imageid'];
+    }
+
+    public function getCount()
+    {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM postarticle");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['count'];
     }
 
     public function deletePostArticle($postId)

@@ -30,7 +30,8 @@ class Newsletter extends Database
         } else {
             $stmt = $this->pdo->prepare('INSERT INTO newsletter (email) VALUES (:email)');
             $stmt->bindValue(':email', htmlspecialchars($email));
-            return $stmt->execute();
+            $stmt->execute();
+            return true;
         }
     }
 

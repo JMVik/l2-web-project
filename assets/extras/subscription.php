@@ -6,13 +6,27 @@ require_once __DIR__ . '/../extras/lang.php';
 
 require_once __DIR__ . "/../models/Newsletter.php";
 
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (empty($_POST['emailsub'])) {
+        $errMsg = $t['subscription']['msg_empty_email'];
+    } else {
+        $email = $_POST['emailsub'];
 
-    $newsletter = new Newsletter();
-    $news = $newsletter->createNewsUser($email);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200 || !is_string($emailsub)) {
+            $errMsg = $t['subscription']['msg_failure_email'];
+        } else {
+            $newsletter = new Newsletter();
+            $news = $newsletter->createNewsUser($email);
 
-    header("Refresh: 5; url=/../../index.php");
+            if ($news) {
+                header("Refresh: 5; url=/../../index.php");
+            }
+            else {
+                $errMsg = $t['subscription']['msg_email_exist'];
+                header("Refresh: 5; url=/../../index.php");
+            }
+        }
+    }
 }
 
 ?>
@@ -26,20 +40,19 @@ if (isset($_POST['email'])) {
     <meta name="description" content="Page d'inscription à la newsletter.">
     <title>Inscription Newsletter</title>
     <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="/../../assets/css/styleextra.css">
 </head>
 <body>
     <p>
         <b>    
-        <?php if (isset($_POST['email'])) : ?>
-            <?php if ($news) : ?>
-                <?= $t['subscription']['success'] ?>
-            <?php else : ?>
-                <?= $t['subscription']['failure_email'] ?>
-            <?php endif; ?>
-                <a href='/../../index.php'><?= $t['subscription']['link'] ?></a>
+        <?php if ($news) : ?>
+            <?= $t['subscription']['success'] ?>
+            <?= $t['logout']['msg_redir'] ?>
         <?php else : ?>
-            <?= $t['subscription']['failure'] ?>
+            <?php echo $errMsg ?>
+            <?= $t['subscription']['msg_redir'] ?>
             <a href='/../../index.php'><?= $t['subscription']['link'] ?></a>
             <?php header("Refresh: 5; url=/../../index.php"); ?>
         <?php endif; ?>

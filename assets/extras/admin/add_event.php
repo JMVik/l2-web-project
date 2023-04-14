@@ -27,13 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $
         $allowed_ext = array('png', 'jpg', 'jpeg', 'gif');
         $img_ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
-        if (strlen($title) < 2 || strlen($title) > 100) {
+        if (strlen($title) < 2 || strlen($title) > 100 || !is_string($title)) {
             $errMsg = $t['add_event']['msg_failure_title'];
         }
         if (!in_array($img_ext, $allowed_ext)) {
             $errMsg .= $t['add_event']['msg_failure_img'];
         }
-        if (strlen($content) < 2 || strlen($content) > 300) {
+        if (strlen($content) < 2 || strlen($content) > 300 || !is_string($content)) {
             $errMsg .= $t['add_event']['msg_failure_content'];
         } else {
             $name = $_FILES['image']['name'];
@@ -69,6 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $
     <meta name="description" content="Page d'ajout d'un événement.">
     <title>Ajout Evénement</title>
     <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="/../../../assets/css/styleextra.css">
 </head>
 <body>

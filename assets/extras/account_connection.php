@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200 || !is_string($email)) {
             $errMsg = $t['account_connection']['msg_failure_email'];
         }
-        if (strlen($password) < 6 || strlen($password) > 100) {
+        if (strlen($password) < 6 || strlen($password) > 100 || !is_string($password)) {
             $errMsg .= $t['account_connection']['msg_failure_mdp'];
         } else {
             $user = new User();
@@ -52,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Page de connexion à un compte.">
     <title>Connexion au compte</title>
     <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="/../../assets/css/styleextra.css">
 </head>
 <body>
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <b>
         <?php if ($loggedInUser) : ?>
             <?= $t['account_connection']['msg_success'] ?>
-            <a href='/../../login.php'><?= $t['account_connection']['linkdash'] ?></a>
+            <a href='/../../dashboard.php'><?= $t['account_connection']['linkdash'] ?></a>
         <?php else : ?>
             <?php echo $errMsg ?>
             <?= $t['add_event']['msg_redir_fail'] ?>

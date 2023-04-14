@@ -14,7 +14,7 @@ require_once 'assets/extras/lang.php';
         <h3><?= $t['foot']['newsletter_title'] ?></h3>
         <form action="assets/extras/subscription.php" method="post">
             <label for="emailsub"><?= $t['foot']['newsletter_p'] ?></label>
-            <input type="email" name="emailsub" id="emailsub" placeholder="<?= $t['foot']['email_entry'] ?>" required>
+            <input type="email" name="emailsub" id="emailsub" placeholder="<?= $t['foot']['email_entry'] ?>">
             <button type="submit" name="submitsub"><?= $t['foot']['subscribe_button'] ?></button>
         </form>
         <p></p>

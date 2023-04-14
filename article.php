@@ -18,6 +18,9 @@ $postarticleexist = new PostArticle();
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
     <meta name="description" content="Page affichant tous les articles mis en ligne.">
     <title>Articles</title>
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
     <link rel="stylesheet" href="assets/css/styleeventarticle.css">

@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        if (strlen($name) < 2 || strlen($name) > 100) {
+        if (strlen($name) < 2 || strlen($name) > 100 || !is_string($name)) {
             $errMsg = $t['account_creation']['msg_failure_name'];
         }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 200 || !is_string($email)) {
             $errMsg .= $t['account_creation']['msg_failure_email'];
         }
-        if (strlen($password) < 6 || strlen($password) > 100) {
+        if (strlen($password) < 6 || strlen($password) > 100 || !is_string($password)) {
             $errMsg .= $t['account_creation']['msg_failure_mdp'];
         } else {
             $user = new User();
@@ -55,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Page de création de compte.">
     <title>Création du compte</title>
     <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="/../../assets/css/styleextra.css">
 </head>
 <body>

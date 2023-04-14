@@ -26,9 +26,11 @@ $t = [
         'facebook' => 'Facebook',
     ],
     'subscription' => [
-        'success' => 'Votre adresse E-mail a été ajouté à la newsletter !<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ',
-        'failure_email' => 'Votre adresse E-mail a déjà été ajouté auparavant.<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ',
-        'failure' => 'Un problème est survenu.<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ',
+        'success' => 'Votre adresse E-mail a été ajouté à la newsletter !<br>',
+        'msg_empty_email' => "Vous devez renseigner un E-mail.<br>",
+        'msg_failure_email' => "L'E-mail n'a pas le bon format ou est trop long (plus de 200 caractères)",
+        'msg_email_exist' => "Votre E-mail est déjà inscrit à notre Newsletter.<br>",
+        'msg_redir' => "Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ",
         'link' => 'Accueil',
     ],
     'index' => [
@@ -37,8 +39,9 @@ $t = [
         'no_event' => "Aucun événement à l'affiche",
         'article' => 'Articles',
         'no_article' => "Aucun article en ligne",
-        'seemoreevent' => "Voir plus d'événements",
-        'seemorearticle' => "Voir plus d'articles",
+        'seeallevent' => "Voir tous les événements",
+        'seemorearticle' => "Voir d'autres articles",
+        'seeallarticle' => "Voir tous les articles",
         'presentation' => "« Opus » est un ensemble vocal créé en septembre 2019 et composé de 16 choristes sous la direction de Zivile Schmitt.
             <br>Les chanteuses se réunissent le mardi soir à Mutzig et lors de plusieurs journées de travail afin de proposer au moins 4 concerts par an.
             <br>Opus cherche à toucher un très large public (musiciens en formation, écoles, personnes âgées), et anime aussi la vie locale.",

@@ -31,6 +31,28 @@ class Image extends Database
         }
     }
 
+    public function getImage($id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM image WHERE id = :id');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if (!$result) {
+            return null;
+        }
+        
+        $image = [
+            'id' => $result['id'],
+            'name' => $result['name'],
+            'type' => $result['type'],
+            'data' => base64_encode($result['data'])
+        ];
+        
+        return $image;
+    }
+
     public function getImageTypeData($id)
     {
         $stmt = $this->pdo->prepare('SELECT * FROM image WHERE id = :id');

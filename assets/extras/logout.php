@@ -4,7 +4,7 @@ session_start();
 
 require_once __DIR__ . '/../extras/lang.php';
 
-if( isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null ) {
+if (isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null) {
     session_destroy();
     header("Refresh: 5; url=/../../index.php");
 }
@@ -20,6 +20,8 @@ if( isset($_SESSION['user']['id']) && $_SESSION['user']['id'] !== null ) {
     <meta name="description" content="Page de déconnexion.">
     <title>Déconnexion</title>
     <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="/../../assets/css/styleextra.css">
 </head>
 <body>
