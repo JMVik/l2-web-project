@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php else : ?>
             <?php echo $errMsg ?>
             <?= $t['add_event']['msg_redir_fail'] ?>
-            <a href='/../../signin.php'><?= $t['account_connection']['linklog'] ?></a>
+            <a href='/../../login.php'><?= $t['account_connection']['linklog'] ?></a>
             <?php header("Refresh: 10; url=/../../login.php"); ?>
         <?php endif; ?>
         </b>

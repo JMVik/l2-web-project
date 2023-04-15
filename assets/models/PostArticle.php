@@ -15,8 +15,8 @@ class PostArticle extends Database
     {
         $this->pdo->query('CREATE TABLE IF NOT EXISTS postarticle(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title VARCHAR(255) NOT NULL,
-            content TEXT NOT NULL,
+            title VARCHAR(100) NOT NULL,
+            content TEXT(300) NOT NULL,
             imageid INTEGER,
             FOREIGN KEY (imageid) REFERENCES image(id)
         )');

@@ -15,7 +15,7 @@ require_once 'assets/extras/lang.php';
                 <li><a href="dashboard.php"><?= $t['nav']['dashboard'] ?></a></li>
                 <li><a href="assets/extras/logout.php"><?= $t['nav']['disconnect'] ?></a></li>
                 <?php else : ?>
-                <li><a href="signin.php"><?= $t['nav']['signin'] ?></a></li>
+                <li><a href="signup.php"><?= $t['nav']['signup'] ?></a></li>
                 <li><a href="login.php"><?= $t['nav']['login'] ?></a></li>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
@@ -34,7 +34,7 @@ require_once 'assets/extras/lang.php';
             <a href="assets/extras/logout.php"><?= $t['nav']['disconnect'] ?></a>
             <?php else : ?>
             <a href="login.php"><?= $t['nav']['login'] ?></a>
-            <a href="signin.php"><?= $t['nav']['signin'] ?></a>
+            <a href="signup.php"><?= $t['nav']['signup'] ?></a>
             <?php endif; ?>
         </li>
         <li>

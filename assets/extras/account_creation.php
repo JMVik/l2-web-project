@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($emailUnique > 0){
                 $user = null;
-                header("Refresh: 10; url=/../../signin.php");
+                header("Refresh: 10; url=/../../signup.php");
             } else {
                 $user->createUser($name, $email, $password);
                 header("Refresh: 5; url=/../../login.php");
@@ -68,12 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php elseif ($emailUnique > 0) : ?>
             <?= $t['account_creation']['msg_email_exist'] ?>
             <?= $t['account_creation']['msg_redir_fail'] ?>
-            <a href='/../../signin.php'><?= $t['account_creation']['linksign'] ?></a>
+            <a href='/../../signup.php'><?= $t['account_creation']['linksign'] ?></a>
         <?php else : ?>
             <?php echo $errMsg ?>
             <?= $t['account_creation']['msg_redir_fail'] ?>
-            <a href='/../../signin.php'><?= $t['account_creation']['linksign'] ?></a>
-            <?php header("Refresh: 10; url=/../../signin.php"); ?>
+            <a href='/../../signup.php'><?= $t['account_creation']['linksign'] ?></a>
+            <?php header("Refresh: 10; url=/../../signup.php"); ?>
         <?php endif; ?>
         </b>
     </p>

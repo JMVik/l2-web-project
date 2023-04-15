@@ -16,6 +16,11 @@ main > h2, main > nav > h2 {
   color: #0B3948;
 }
 
+main > h2 > img {
+  width: 186px;
+  height: 111px;
+}
+
 main > section, main > nav > p {
   margin: 0;
   margin-bottom: 16px;
@@ -137,5 +142,16 @@ main > nav:nth-of-type(2) > footer a {
   }
   main > nav > section > article > section:nth-of-type(2) > p {
     width: 338px;
+  }
+  main > h2 > img {
+    width: 248px;
+    height: 148px;
+  }
+}
+
+@media (min-width: 992px) {
+  main > h2 > img {
+    width: 372px;
+    height: 222px;
   }
 }

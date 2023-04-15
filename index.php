@@ -41,7 +41,7 @@ $postarticleexist = new PostArticle();
         </section>
     </header>
     <main>
-        <h2><?= $t['index']['namegroup'] ?></h2>
+        <h2><img src="assets/img/opus_logo.webp" alt="Logo Opus Ensemble Vocal Féminin"></h2>
         <section></section>
         <p><?= $t['index']['presentation'] ?></p> 
         <nav>
@@ -68,7 +68,7 @@ $postarticleexist = new PostArticle();
                     if ($imageData) {
                         $data = base64_encode($imageData['data']);
                         $type = $imageData['type'];
-                        echo "<img src='data:$type;base64,$data' alt='Image événement'>";
+                        echo "<img src='data:$type;base64,$data' alt='Affiche événement'>";
                     }
                 ?>
                 </section>
@@ -107,7 +107,7 @@ $postarticleexist = new PostArticle();
                     if ($imageData) {
                         $data = base64_encode($imageData['data']);
                         $type = $imageData['type'];
-                        echo "<img src='data:$type;base64,$data' alt='Image article'>";
+                        echo "<img src='data:$type;base64,$data' alt='Affiche article'>";
                     }
                 ?>
                 </section>

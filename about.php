@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="assets/css/stylenav.css">
     <link rel="stylesheet" href="assets/css/stylefoot.css">
+    <link rel="stylesheet" href="assets/css/styleabout.css">
     <script src="assets/js/verif_sub.js" defer></script>
 </head>
 <body>
@@ -19,6 +20,25 @@
             include("assets/templates/navigation.php");
         ?>
     </header>
+    <main>
+        <h1><?= $t['about']['title'] ?></h1>
+        <section></section>
+        <article>
+            <h2><?= $t['about']['historytitle'] ?></h2>
+            <section></section>
+            <p><?= $t['about']['historyp'] ?></p>
+        </article>
+        <article>
+            <h2><?= $t['about']['chieftitle'] ?></h2>
+            <section></section>
+            <p><?= $t['about']['chiefp'] ?></p>
+        </article>
+        <article>
+            <h2><?= $t['about']['pianisttitle'] ?></h2>
+            <section></section>
+            <p><?= $t['about']['pianistp'] ?></p>
+        </article>
+    </main>
     <footer>
         <?php
             include("assets/templates/foot.php");
