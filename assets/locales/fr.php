@@ -28,7 +28,7 @@ $t = [
     'subscription' => [
         'success' => 'Votre adresse E-mail a été ajouté à la newsletter !<br>',
         'msg_empty_email' => "Vous devez renseigner un E-mail.<br>",
-        'msg_failure_email' => "L'E-mail n'a pas le bon format ou est trop long (plus de 200 caractères)",
+        'msg_failure_email' => "L'E-mail n'a pas le bon format ou est trop long (plus de 200 caractères).",
         'msg_email_exist' => "Votre E-mail est déjà inscrit à notre Newsletter.<br>",
         'msg_redir' => "Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ",
         'link' => 'Accueil',
@@ -122,7 +122,7 @@ $t = [
         'name' => "Nom d'utilisateur",
         'email' => 'E-mail',
         'password' => 'Mot de passe',
-        'signup_button' => "S'inscrire",
+        'signup _button' => "S'inscrire",
     ],
     'dash' => [
         'msg_noconnected' => "Vous n'êtes pas connecté.<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ",
