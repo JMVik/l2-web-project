@@ -18,15 +18,6 @@ main > section:first-of-type ul {
   min-width: 120px;
   text-align: center;
 }
-
-@media (min-width: 768px) {
-  main {
-    margin: 20px;
-  }
-  main > section:first-of-type ul {
-    min-width: 160px;
-  }
-}
   
 main > section:first-of-type li {
   display: flex;
@@ -83,6 +74,10 @@ body > article a:hover {
 
 @media (min-width: 768px) {
   main {
+    margin: 20px;
     flex-direction: initial;
+  }
+  main > section:first-of-type ul {
+    min-width: 160px;
   }
 }
