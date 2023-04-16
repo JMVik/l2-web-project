@@ -33,7 +33,7 @@ $postarticleexist = new PostArticle();
         ?>
     </header>
     <main>
-        <h2><?= $t['index']['article'] ?></h2>
+        <h1><?= $t['index']['article'] ?></h1>
         <p></p>
         <?php if ($postarticleexist->getPosts() == NULL) : ?>
         <h2><?= $t['index']['no_article'] ?></h2>

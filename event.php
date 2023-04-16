@@ -33,7 +33,7 @@ $posteventexist = new PostEvent();
         ?>
     </header>
     <main>
-        <h2><?= $t['index']['nextevent'] ?></h2>
+        <h1><?= $t['index']['nextevent'] ?></h1>
         <p></p>
         <?php if ($posteventexist->getPosts() == NULL) : ?>
         <h2><?= $t['index']['no_event'] ?></h2>
