@@ -13,6 +13,7 @@ $image = new Image();
 $news = new Newsletter();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) {
+    $errMsg = null;
     if (empty($_POST['title'])) {
         $errMsg = $t['add_event']['msg_empty_title'];
     }

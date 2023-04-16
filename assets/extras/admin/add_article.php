@@ -11,6 +11,7 @@ $postarticle = new PostArticle();
 $image = new Image();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) {
+    $errMsg = null;
     if (empty($_POST['title'])) {
         $errMsg = $t['add_article']['msg_empty_title'];
     }

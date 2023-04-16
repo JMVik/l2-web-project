@@ -7,6 +7,7 @@ require_once __DIR__ . '/../extras/lang.php';
 require_once __DIR__ . "/../models/Newsletter.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $errMsg = null;
     if (empty($_POST['emailsub'])) {
         $errMsg = $t['subscription']['msg_empty_email'];
     } else {

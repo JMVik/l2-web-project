@@ -7,6 +7,7 @@ require_once __DIR__ . '/../extras/lang.php';
 require_once __DIR__ . '/../models/User.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $errMsg = null;
     if (empty($_POST['email'])) {
         $errMsg = $t['account_connection']['msg_empty_email'];
     }
