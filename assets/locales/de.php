@@ -7,7 +7,7 @@ $t = [
         'article' => 'Artikel',
         'dashboard' => 'Profil',
         'disconnect' => 'Abmelden',
-        'signin' => "Registrieren",
+        'signup' => "Registrieren",
         'login' => 'Einloggen',
         'admin' => 'Verwaltung',
         'contact' => 'Kontakt',
@@ -115,14 +115,14 @@ $t = [
         'password' => 'Mot de passe',
         'login_button' => 'Se connecter',
     ],
-    'signin' => [
+    'signup' => [
         'msg_connected' => 'Vous êtes déjà connecté.<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ',
         'link' => 'Accueil',
-        'signin_form' => 'Inscription',
+        'signup_form' => 'Inscription',
         'name' => "Nom d'utilisateur",
         'email' => 'E-mail',
         'password' => 'Mot de passe',
-        'signin_button' => "S'inscrire",
+        'signup_button' => "S'inscrire",
     ],
     'dash' => [
         'msg_noconnected' => "Vous n'êtes pas connecté.<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ",
