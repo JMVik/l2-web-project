@@ -119,8 +119,8 @@ $postarticleexist = new PostArticle();
             <section id='article-list'></section>
             </section>
             <footer>
-                <button id='load-more' type="submit"><b><?= $t['index']['seemorearticle'] ?></b></button>
-                <a id="allarticle" href="article.php"><b><?= $t['index']['seeallarticle'] ?></b></a>
+                <button type="submit"><b><?= $t['index']['seemorearticle'] ?></b></button>
+                <a href="article.php"><b><?= $t['index']['seeallarticle'] ?></b></a>
             </footer>
             <?php endif; ?>
         </nav>

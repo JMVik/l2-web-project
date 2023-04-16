@@ -1,5 +1,5 @@
-const loadMoreBtn = document.getElementById('load-more');
-const link = document.getElementById('allarticle');
+const loadMoreBtn = document.querySelector('main>nav:nth-of-type(2)>footer button');
+const link = document.querySelector('main>nav:nth-of-type(2)>footer a');
 
 let offset = 3;
 const limit = 3;
