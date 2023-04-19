@@ -122,7 +122,7 @@ $t = [
         'name' => "Nom d'utilisateur",
         'email' => 'E-mail',
         'password' => 'Mot de passe',
-        'signup _button' => "S'inscrire",
+        'signup_button' => "S'inscrire",
     ],
     'dash' => [
         'msg_noconnected' => "Vous n'êtes pas connecté.<br>Vous allez être redirigé dans 5 secondes.<br>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien suivant : ",
