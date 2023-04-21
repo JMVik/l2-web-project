@@ -85,6 +85,11 @@ main h3 {
   padding-bottom: 8px;
   color: #0B3948;
   text-align: center;
+  display: block;
+  width: 270px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 main > nav > section > article > section:first-child {
