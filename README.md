@@ -10,5 +10,6 @@ Membre sans permission :
  * E-mail: compte@membre.com | Mot de passe : mepassword
 
 ## Informations complémentaires
-L'ajout d'événements ou d'articles se fait par la partie "Admin" qui se trouve dans le menu déroulant, une fois que l'on est connecté avec le compte administrateur.
-Le système de newsletter a été implémenté mais pas testé. Tout le reste à part ceci a été testé.
+ * L'ajout de la permission administrateur à un membre se fait en modifiant directement la database.
+ * L'ajout d'événements ou d'articles se fait par la partie "Admin" qui se trouve dans le menu déroulant, une fois que l'on est connecté avec le compte administrateur.
+ * Le système de newsletter a été implémenté mais pas testé. Tout le reste à part ceci a été testé.
