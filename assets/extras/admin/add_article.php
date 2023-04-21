@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $
             $errMsg = $t['add_article']['msg_failure_title'];
         } if (!in_array($img_ext, $allowed_ext)) {
             $errMsg .= $t['add_article']['msg_failure_img'];
-        } if (strlen($content) < 2 || strlen($content) > 300 || !is_string($content)) {
+        } if (strlen($content) < 2 || strlen($content) > 600 || !is_string($content)) {
             $errMsg .= $t['add_article']['msg_failure_content'];
         } else {
             $name = $_FILES['image']['name'];
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user']['id']) && $
 <body>
     <p>
         <b>
-        <?php if ((strlen($title) >= 2 && strlen($title) <= 100) && (strlen($content) >= 2 && strlen($content) <= 100) && (in_array($img_ext, $allowed_ext)) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
+        <?php if ((strlen($title) >= 2 && strlen($title) <= 100) && (strlen($content) >= 2 && strlen($content) <= 600) && (in_array($img_ext, $allowed_ext)) && isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>
             <?= $t['add_article']['msg_success'] ?>
             <a href='/../../../index.php'><?= $t['add_article']['link'] ?></a>
         <?php elseif (isset($_SESSION['user']['id']) && $_SESSION['user']['isadmin']) : ?>

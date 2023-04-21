@@ -12,7 +12,7 @@ function loadTabContent(tabId, event) {
         const fileName = fileCheck.name;
         const fileExtension = fileName.split('.').pop()
         const allowedFile = /(\.jpg|\.jpeg|\.png|\.gif)$/i
-        const textareaCheck = (textarea) => /^.{2,300}$/.test(textarea)
+        const textareaCheck = (textarea) => /^.{2,600}$/.test(textarea)
         const errorTitleContainer = document.querySelector('article > form p:first-of-type')
         const errorFileContainer = document.querySelector('article > form p:nth-of-type(2)')
         const errorTextContainer = document.querySelector('article > form p:nth-of-type(3)')
@@ -50,7 +50,7 @@ function loadTabContent(tabId, event) {
             submitButton.disabled = false
           } else {
             textarea.classList.add('error')
-            errorTextContainer.innerHTML = 'Entre 2 et 300 caractères requis<br>Between 2 and 300 characters required'
+            errorTextContainer.innerHTML = 'Entre 2 et 600 caractères requis<br>Between 2 and 600 characters required'
             submitButton.disabled = true
           }
         }
