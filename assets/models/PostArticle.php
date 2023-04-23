@@ -54,13 +54,13 @@ class PostArticle extends Database
 
     public function getPosts()
     {
-        return $this->pdo->query('SELECT p.*, i.data FROM postarticle p LEFT JOIN image i ON p.imageid = i.id')
+        return $this->pdo->query('SELECT p.*, i.data FROM postarticle p LEFT JOIN image i ON p.imageid = i.id ORDER BY p.id DESC')
                          ->fetchAll();
     }
 
     public function getArticles(int $limit, int $offset)
 {
-    $stmt = $this->pdo->prepare('SELECT p.*, i.data FROM postarticle p LEFT JOIN image i ON p.imageid = i.id ORDER BY p.id ASC LIMIT :limit OFFSET :offset');
+    $stmt = $this->pdo->prepare('SELECT p.*, i.data FROM postarticle p LEFT JOIN image i ON p.imageid = i.id ORDER BY p.id DESC LIMIT :limit OFFSET :offset');
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
